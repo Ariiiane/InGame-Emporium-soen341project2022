@@ -12,6 +12,6 @@ Develop an e-commerce
 ------
 - Ariane Drouin
 	
-#Team Members
+# Team Members
 ------
 -
