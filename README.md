@@ -1,17 +1,17 @@
-#SOEN 341
+# SOEN 341
 ------
 
-#Objective
+# Objective
 ------
 Develop an e-commerce
 
-#Project
+# Project
 ------
 
-#Team Members
+# Team Members
 ------
-	- Ariane Drouin
+- Ariane Drouin
 	
 #Team Members
 ------
-	-
+-
