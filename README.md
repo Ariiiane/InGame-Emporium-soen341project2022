@@ -10,10 +10,10 @@ Develop an e-commerce
 
 # Team Members
 
-- Ariane Drouin
+- Ariane Drouin - 40080065
 - Maria Fernanda Rivas (40174860)
 - Mylène Fotso Tsafack - 40108858
 	
-# Team Members
+# Technologies
 
 -
