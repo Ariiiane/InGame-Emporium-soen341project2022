@@ -13,6 +13,7 @@ Develop an e-commerce
 - Ariane Drouin - 40080065
 - Maria Fernanda Rivas (40174860)
 - Mylène Fotso Tsafack - 40108858
+- Jacques-Andre Roebuck - 40128691
 	
 # Technologies
 
