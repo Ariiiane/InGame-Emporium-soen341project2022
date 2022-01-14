@@ -11,6 +11,7 @@ Develop an e-commerce
 # Team Members
 
 - Ariane Drouin
+- Maria Fernanda Rivas (40174860)
 	
 # Team Members
 
