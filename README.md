@@ -12,6 +12,7 @@ Develop an e-commerce
 
 - Ariane Drouin
 - Maria Fernanda Rivas (40174860)
+- Mylène Fotso Tsafack - 40108858
 	
 # Team Members
 
