@@ -1,1 +1,7 @@
-# SOEN341
+SOEN341
+
+Objective
+
+Project
+
+Team Members
