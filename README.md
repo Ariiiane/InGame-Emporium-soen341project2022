@@ -31,7 +31,7 @@ Develop an e-commerce application for users to easily have access to various ava
 | Jacques-Andre Roebuck | JR-prog | 40128691 |
 | Chloe Hei Yu Law | midori-loee | 40173275 |
 | Camille Granade | | |
-| Aryan Shirazi | | |
+| Aryan Shirazi | AryanSh1380 | 40119594 |
 	
 ## Languages and Technologies 💻
 - Languages
