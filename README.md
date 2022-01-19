@@ -30,6 +30,8 @@ Develop an e-commerce application for users to easily have access to various ava
 | Mylène Fotso Tsafack | hilary-ostof | 40108858 |
 | Jacques-Andre Roebuck | JR-prog | 40128691 |
 | Chloe Hei Yu Law | midori-loee | 40173275 |
+| Camille Granade | | |
+| Aryan Shirazi | | |
 	
 ## Languages and Technologies 💻
 - Languages
