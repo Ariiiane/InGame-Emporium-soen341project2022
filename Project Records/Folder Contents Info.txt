@@ -1,1 +1,0 @@
-Documentation for all sprints will be in this folder organized by subfolders.
