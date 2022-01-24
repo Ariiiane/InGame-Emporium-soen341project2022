@@ -11,7 +11,7 @@ Develop an e-commerce application for users to easily have access to various ava
 1. Requires to have an email and password to login. 
 3. Upon successful login, the customer will be able to:
      - Browse through the catalogue
-     - Add items to their cart
+     - Add items to their cart or to their list
      - Purchase or do payment
 4. The address of the customer is required to enable the requested ordered items to be delivered.
 
