@@ -8,7 +8,7 @@ Develop an e-commerce application for users to easily have access to various ava
 
 ## Core Features ⭐
 ### Customer
-1. Requires to have an email and password to login. 
+1. Requires to have an email and password to login.
 3. Upon successful login, the customer will be able to:
      - Browse through the catalogue
      - Add items to their cart or to their list
@@ -16,7 +16,7 @@ Develop an e-commerce application for users to easily have access to various ava
 4. The address of the customer is required to enable the requested ordered items to be delivered.
 
 ### Seller
-1. Register, login and post items for purchase 
+1. Register, login and post items for purchase
 
 ### Admin
 1. Handles the profiles
@@ -30,9 +30,9 @@ Develop an e-commerce application for users to easily have access to various ava
 | Mylène Fotso Tsafack | hilary-ostof | 40108858 |
 | Jacques-Andre Roebuck | JR-prog | 40128691 |
 | Chloe Hei Yu Law | midori-loee | 40173275 |
-| Camille Granade | | |
+| Camille Granade | cam12348035 | 40162475 |
 | Aryan Shirazi | AryanSh1380 | 40119594 |
-	
+
 ## Languages and Technologies 💻
 - Languages
   - PHP
@@ -40,7 +40,7 @@ Develop an e-commerce application for users to easily have access to various ava
   - CSS
   - SQL
   - Javascript
-- Technologies 
+- Technologies
   - Laravel
   - React
 
