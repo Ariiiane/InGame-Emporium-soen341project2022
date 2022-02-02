@@ -30,7 +30,7 @@ In this project, our team members are cooperating to design an online shopping w
 | Maria Fernanda Rivas | MariaR001 | 40174860 |
 | Mylène Fotso Tsafack | hilary-ostof | 40108858 |
 | Jacques-Andre Roebuck | JR-prog | 40128691 |
-| Chloe Hei Yu Law | midori-loee | 40173275 |
+| Chloe Hei Yu Law | ChloeeeLaw | 40173275 |
 | Camille Granade | cam12348035 | 40162475 |
 | Aryan Shirazi | AryanSh1380 | 40119594 |
 
