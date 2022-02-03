@@ -7,9 +7,11 @@ use DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class ProductsViewController extends Controller {
-   public function dbsample() {
+class ProductsController extends Controller {
+
+   public function dbReadSample() {
       $products = DB::select('select * from products');
-      return view('dbsample',['products'=>$products]);
+      return view('dbReadSample',['products'=>$products]);
    }
+
 }
