@@ -19,6 +19,7 @@ class CreateSalesTable extends Migration
             $table->string('order_id', 50);
             $table->string('format', 50)->default(null);
             $table->integer('quantity');
+            $table->timestamps();
         });
     }
 

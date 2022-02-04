@@ -25,6 +25,7 @@ class CreateProductsTable extends Migration
             $table->string('format', 50);
             $table->integer('inventory');
             $table->string('image_path', 200);
+            $table->timestamps();
         });
     }
 

@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('postal_code', 50);
             $table->string('province', 50);
             $table->string('address', 200);
+            $table->timestamps();
         });
     }
 

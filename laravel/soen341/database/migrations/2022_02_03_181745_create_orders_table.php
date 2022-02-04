@@ -21,6 +21,7 @@ class CreateOrdersTable extends Migration
             $table->string('delivery_date', 50);
             $table->string('delivery_address', 250);
             $table->string('shipping_speed', 50);
+            $table->timestamps();
         });
     }
 
