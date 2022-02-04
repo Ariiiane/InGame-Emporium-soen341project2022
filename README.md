@@ -1,4 +1,4 @@
-# SOEN 341
+# SOEN 341 - In Game Emporium
 
 
 ## Objective 🎯
