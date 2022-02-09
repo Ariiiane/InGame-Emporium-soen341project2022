@@ -1,6 +1,0 @@
-create new project
-remove all folders from app -> tests + README.md (keep anything past vendor in your directory)
-clone repo to the same folder as your newly created project
-drag all files that you kept in project folder into the cloned repo
-run following command to migrate db: php artisan migrate (run from the repo directory)
-navigate to public folder from you browser:(as an example you may have "localhost/soen341/InGame-Emporium-soen341project2022/public", but this might be different depending on your folder structure)
