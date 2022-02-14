@@ -1,11 +1,13 @@
 import './App.css';
 import React from 'react'
-import Header from './Header'
+import Header from './components/Header'
 import {BrowserRouter, Router} from 'react-router-dom'
-import login from './Login'
-import signup from './Signup'
+import login from './pages/Login'
+import signup from './pages/Signup'
 import list from './List'
-import cart from './Cart'
+import cart from './pages/Cart'
+
+require('./bootstrap');
 function App() {
   return (
     <div className="App">
