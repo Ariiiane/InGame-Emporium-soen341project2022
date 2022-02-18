@@ -43,4 +43,3 @@ In this project, our team members are cooperating to design an online shopping w
   - Javascript
 - Technologies
   - Laravel
-  - React
