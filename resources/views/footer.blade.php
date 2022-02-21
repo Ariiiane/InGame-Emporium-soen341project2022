@@ -4,27 +4,27 @@
     <div class="col-2">
         <h5>About Us</h5>
         <ul class="nav flex-column">
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Locations</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Business Hours</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Work with us</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Locations</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Business Hours</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Work with us</a></li>
         </ul>
       </div>
 
     <div class="col-2">
       <h5>More Information</h5>
       <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Features</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Pricing</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0">FAQs</a></li>
       </ul>
     </div>
 
     <div class="col-2">
       <h5>Contact Us</h5>
       <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Location</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">By Email</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">By Phone</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Location</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0">By Email</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0">By Phone</a></li>
       </ul>
     </div>
 
