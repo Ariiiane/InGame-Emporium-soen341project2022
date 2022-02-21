@@ -1,34 +1,30 @@
+<div class="footer">
 <div class="row">
+
     <div class="col-2">
-      <h5>Section</h5>
+        <h5>About Us</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Locations</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Business Hours</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Work with us</a></li>
+        </ul>
+      </div>
+
+    <div class="col-2">
+      <h5>More Information</h5>
       <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
         <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
         <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
         <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
       </ul>
     </div>
 
     <div class="col-2">
-      <h5>Section</h5>
+      <h5>Contact Us</h5>
       <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
-      </ul>
-    </div>
-
-    <div class="col-2">
-      <h5>Section</h5>
-      <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Location</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">By Email</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">By Phone</a></li>
       </ul>
     </div>
 
@@ -44,3 +40,9 @@
       </form>
     </div>
   </div>
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2022 Copyright:
+    <a class="text-white" href="../html/index.html">Assignment SOEN341</a>
+</div>
+</div>
