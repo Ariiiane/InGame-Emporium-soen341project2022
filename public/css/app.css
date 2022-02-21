@@ -37,6 +37,12 @@ body, html {
     font-family: Arial, Helvetica, sans-serif;
     border: none;
 }
+.dropdown-menu li a{
+    color:black;
+}
+.dropdown-item:hover{
+    color:rgb(127, 173, 216);
+}
 .btn{
     color: white;
     border: none;
@@ -57,7 +63,9 @@ body, html {
 .footer .nav-link:hover{
     color: rgb(127, 173, 216);
 }
-
+.navbar-brand:hover{
+    color:rgb(127, 173, 216);
+}
 .navbar .nav-link:hover{
     color: rgb(127, 173, 216);
 }
