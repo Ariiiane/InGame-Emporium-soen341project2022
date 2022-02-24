@@ -2,104 +2,137 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Session;
 use App\Models\User;
-use Illuminate\Support\Facades\Validator;
+use Hash;
+
 
 class UserController extends Controller
 {
-    private $status_code = 200;
-
-    // User Sign Up
-    public function userSignUp(Request $request)
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function index()
     {
-        $validator = Validator::make($request->all(),
-            [
-                "first_name" => "required",
-                "last_name" => "required",
-                "email" => "required|email",
-                "password" => "required",
-                "address" => "required",
-                "province" => "required",
-                "postal_code" => "required"
-            ]
-        );
-        if ($validator->fails()) {
-            return response()->json(["status" => "failed", "message" => "validation_error", $validator->errors()]);
-        }
-
-        $id = 0;
-        $user_id = 0;
-        $role = "user";
-
-        $userDataArray = array(
-            "id" => $id,
-            "user_id" => $user_id,
-            "role" => $role,
-            "first_name" => $request->first_name,
-            "last_name" => $request->last_name,
-            "email" => $request->email,
-            "password" => md5($request->password),
-            "address" => $request->address,
-            "province" => $request->province,
-            "postal_code" => $request->postal_code
-        );
-
-        $user_status = User::where("email", $request->email)->first();
-
-        if (!is_null($user_status)) {
-            return response()->json(["status" => "failed", "success" => false, "message" => "Whoops! email already registered"]);
-        }
-
-        $user = User::create($userDataArray);
-
-        if (!is_null($user)) {
-            return response()->json(["status" => $this->status_code, "success" => true, "message" => "Registration completed successfully", "data" => $user]);
-        } else {
-            return response()->json(["status" => "failed", "success" => false, "message" => "failed to register"]);
-        }
+        $users = User::all();
+        return view('auth.index', ['users'=>$users]);
     }
 
-    // User Login
-    public function userLogin(Request $request)
+    public function login()
     {
-        $validator = Validator::make($request->all(),
-            [
-                "email" => "required|email",
-                "password" => "required"
-            ]
-        );
-
-        if ($validator->fails()) {
-            return response()->json(["status" => "failed", "validation_error" => $validator->errors()]);
-        }
-
-        // Check if the entered email exists in the database
-        $email_status = User::where("email", $request->email)->first();
-
-        // If the email exists then check password for the same email
-        if (!is_null($email_status)) {
-            $password_status = User::where("email", $request->email)->where("password", md5($request->password))->first();
-
-            // If the password is correct
-            if (!is_null($password_status)) {
-                $user = $this->userDetail($request->email);
-                return response()->json(["status" => $this->status_code, "success" => true, "message" => "You have logged in successfully", "data" => $user]);
-            } else {
-                return response()->json(["status" => "failed", "success" => false, "message" => "Unable to login. Incorrect password."]);
-            }
-        } else {
-            return response()->json(["status" => "failed", "success" => false, "message" => "Unable to login. Email doesn't exist."]);
-        }
+        $users = User::all();
+        return view('auth.login', ['users'=>$users]);
     }
 
-    // User Detail
-    public function userDetail($email)
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function registration()
     {
-        $user = array();
-        if ($email != "") {
-            $user = User::where("email", $email)->first();
-            return $user;
+        return view('auth.registration');
+    }
+
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function postLogin(Request $request)
+    {
+        $request->validate([
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+
+        $credentials = $request->only('email', 'password');
+        if (Auth::attempt($credentials)) {
+            return redirect()->intended('dashboard')
+                ->withSuccess('You have Successfully logged in.');
         }
+
+        return redirect("login")
+            ->withSuccess('Oops! You have entered invalid credentials.');
+    }
+
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function postRegistration(Request $request)
+    {
+        $request->validate([
+            'user_id' => 0,
+            'role' => "user",
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:6',
+            'address' => 'required',
+            'province' => 'required',
+            'postal_code' => 'required',
+        ]);
+
+        $data = $request->all();
+        $check = $this->create($data);
+
+        return redirect("dashboard")
+            ->route('login')
+            ->withSuccess('Great! You have successfully logged in.');
+    }
+
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function dashboard()
+    {
+        if(Auth::check()){
+            return view('dashboard');
+        }
+
+        return redirect("login")
+            ->withSuccess('Oops! You do not have access.');
+    }
+
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function create(array $data)
+    {
+        return User::create([
+            'user_id' => $data['user_id'],
+            'role' => $data['role'],
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+            'address' => $data['address'],
+            'province' => $data['province'],
+            'postal_code' => $data['postal_code'],
+        ]);
+    }
+
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function logout() {
+        Session::flush();
+        Auth::logout();
+
+        return Redirect('login');
     }
 }
+

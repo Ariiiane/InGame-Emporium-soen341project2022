@@ -9,7 +9,9 @@
 
 <div class="container">
 
-    <div class="text-center" style="margin: 50px 0 50px 0;"><a href="{{url('products')}}">BACK</a><br>BASIC CRUD SAMPLE
+    <div class="text-center" style="margin: 50px 0 50px 0;">
+        <a href="{{url('products')}}">BACK</a>
+        <br>BASIC CRUD SAMPLE
     </div>
 
     @yield('content')

@@ -20,11 +20,12 @@ Route::get('/', function () {
 });
 
 Route::resource('products', ProductController::class);
-Route::resource('users', UserController::class);
 
-Route::get('{slug}', function() {
-    return view('index');
-})
-    ->where('slug', '(?!api)([A-z\d-\/_.]+)?');
-
-Auth::routes();
+// Chloe
+Route::get('user-list', [UserController::class, 'index'])->name('user.list');
+Route::get('login', [UserController::class, 'login'])->name('login');
+Route::post('post-login', [UserController::class, 'postLogin'])->name('login.post');
+Route::get('registration', [UserController::class, 'registration'])->name('register');
+Route::post('post-registration', [UserController::class, 'postRegistration'])->name('register.post');
+Route::get('dashboard', [UserController::class, 'dashboard']);
+Route::get('logout', [UserController::class, 'logout'])->name('logout');
