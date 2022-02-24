@@ -18,4 +18,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/admin', function () {
+    return view('admin');
+});
+
+Route::get('/buyer', function () {
+    return view('buyer');
+});
+
+Route::get('/seller', function () {
+    return view('seller');
+});
+
 Route::resource('products', ProductController::class);

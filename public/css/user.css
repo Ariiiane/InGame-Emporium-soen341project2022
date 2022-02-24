@@ -1,0 +1,59 @@
+h4{
+    margin-bottom:0.75em;
+}
+
+table, th,td{
+    border:1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+}
+.btn-outline-primary{
+    background-color:  #05497B;
+    margin: 20px 20px 20px 20px;
+    height: 2.5em;
+    width: 16em;
+}
+
+.identification {
+    height:9em;
+    width:12em;
+    text-align: center;
+    position: relative; left: 3em; top:1em;
+  }
+
+  .info {
+    height: 5em;
+    width: 10em;
+    border:0;
+    position: relative; left: 35em; bottom:5em;
+    margin-bottom:80px;
+    text-align: justify;
+  }
+
+  .inventory, .orders {
+    height: 8em;
+    width: 40em;
+    border:0;
+    padding: 0;
+    margin-bottom: 1em;
+    position: relative; left: 33em; bottom:10em;
+  }
+  .options {
+    height: 8em;
+    width: 58em;
+    border:0;
+    padding: 0;
+    margin-bottom: 2em;
+    position: relative; left: 33em; bottom:8em;
+  }
+
+.profile{
+    border-radius: 50%;
+    height: 95%;
+    width: 95%;
+    background-color: black;
+}
+.username{
+   margin-top:10px;
+}
+
