@@ -21,6 +21,14 @@ class ProductController extends Controller
         return view('sample.products.index',['products'=>$products]);
     }
 
+    public function get_products()
+    {
+        //
+        $products = Product::all();
+
+        return view('products.image',['products'=>$products]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
