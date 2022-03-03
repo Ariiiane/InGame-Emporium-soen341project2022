@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +34,12 @@ Route::get('/seller', function () {
 Route::get('/browsing', [ProductController::class, 'get_products']);
 
 Route::resource('products', ProductController::class);
+
+// Chloe for Auth
+Route::get('user-list', [UserController::class, 'index'])->name('user.list');
+Route::get('login', [UserController::class, 'login'])->name('login');
+Route::post('post-login', [UserController::class, 'postLogin'])->name('login.post');
+Route::get('registration', [UserController::class, 'registration'])->name('register');
+Route::post('post-registration', [UserController::class, 'postRegistration'])->name('register.post');
+Route::get('dashboard', [UserController::class, 'dashboard']);
+Route::get('logout', [UserController::class, 'logout'])->name('logout');
