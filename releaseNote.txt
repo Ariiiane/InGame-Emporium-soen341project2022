@@ -1,0 +1,3 @@
+This document is to be delete when the Pull Request is approved
+
+On the wiki, in Design Documentation the design of the shopping cart have been add on and the figma prototype is link for animation reference
