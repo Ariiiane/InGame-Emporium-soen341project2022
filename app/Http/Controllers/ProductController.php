@@ -34,7 +34,14 @@ class ProductController extends Controller
      */
     public function get_products_by_department(String $department) 
     {
-        $products = Product::where('department', $department)->get();
+        if ($department == "All") 
+        {
+            $products = Product::inRandomOrder()->get();
+        }
+        else
+        {
+            $products = Product::where('department', $department)->get();
+        }
 
         return view('products.image',['products'=>$products, 'department'=>$department]);
     }
