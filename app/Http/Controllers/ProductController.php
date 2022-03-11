@@ -30,6 +30,23 @@ class ProductController extends Controller
     }
 
     /**
+     * Displays products belonging to a given department.
+     */
+    public function get_products_by_department(String $department) 
+    {
+        if ($department == "All") 
+        {
+            $products = Product::inRandomOrder()->get();
+        }
+        else
+        {
+            $products = Product::where('department', $department)->get();
+        }
+
+        return view('products.image',['products'=>$products, 'department'=>$department]);
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response

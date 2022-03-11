@@ -30,6 +30,6 @@ Route::get('/seller', function () {
     return view('seller');
 });
 
-Route::get('/browsing', [ProductController::class, 'get_products']);
+Route::get('/browsing/{department}', [ProductController::class, 'get_products_by_department']);
 
 Route::resource('products', ProductController::class);

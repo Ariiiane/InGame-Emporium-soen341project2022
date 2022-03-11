@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">InGame Emporium</a>
+      <a class="navbar-brand" href="{{url('')}}">InGame Emporium</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -17,9 +17,11 @@
               Products
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Tetris</a></li>
+              <li><a class="dropdown-item" href="{{url('')}}/browsing/All">All</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Minecraft</a></li>
+              <li><a class="dropdown-item" href="{{url('')}}/browsing/Tetris">Tetris</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="{{url('')}}/browsing/Minecraft">Minecraft</a></li>
             </ul>
           </li>
           <li class="nav-item">
