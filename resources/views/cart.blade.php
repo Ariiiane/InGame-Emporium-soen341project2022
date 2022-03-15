@@ -19,7 +19,7 @@
             integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
             crossorigin="anonymous"></script>
 </head>
-<body>
+<body style="background-color: #E7E7E7">
 {{View::make('header')}}
 
 <div class="background-cart">
@@ -35,13 +35,40 @@
         <div class="line">
         </div>
         <div class="row-title-cart">
-            <div src="../images/black-square.jpg" alt="item"class="image-product";>
-
+            <img class="image-product"
+                src="https://i.stack.imgur.com/wPh0S.jpg" alt="item">
+            <div class="column-info-item">
+                <div class = "font-name-item">
+                    Name of the product
+                </div>
+                <div class = "font-name-item">
+                    Description of the product
+                </div>
+                <div class="font-delete">
+                    Delete
+                </div>
             </div>
+            <div class="column-price">
+                <div class="font-price">
+                    $XX.XX
+                </div>
+            </div>
+        </div>
+        <div class="line">
+        </div>
+        <div class="font-price">
+            Total:$XX.XX
         </div>
     </div>
 
-    <div class="box-checkout"></div>
+    <div class="box-checkout">
+        <div class="font-checkout-price">
+            Total:$XX.XX
+        </div>
+        <div class="checkout-btn">
+            Proceed to Checkout
+        </div>
+    </div>
 </div>
 
 {{View::make('footer')}}
