@@ -32,6 +32,11 @@ Route::get('/seller', function () {
 });
 
 Route::get('/browsing/{department}', [ProductController::class, 'get_products_by_department']);
+Route::get('/cart', function () {
+    return view('cart');
+});
+
+Route::get('/browsing', [ProductController::class, 'get_products']);
 
 Route::resource('products', ProductController::class);
 
