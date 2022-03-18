@@ -1,6 +1,7 @@
 @extends('products.layout')
 @section('content')
 <div class="bg"></div>
+<h1 class="text-center">{{ $department }}</h1>
 <div class="row" style="margin-bottom: 20px;">
     @foreach ($products as $product)  
     <div class="col">
