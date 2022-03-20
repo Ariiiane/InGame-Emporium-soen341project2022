@@ -27,7 +27,7 @@ class RegistrationTest extends TestCase
             'password_confirmation' => 'password',
             'address' => 'address',
             'province' => 'province',
-            'postal_code' => 'postal_code',
+            'postal_code' => 'h0h0h0',
 
         ]);
 
