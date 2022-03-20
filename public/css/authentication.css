@@ -1,0 +1,33 @@
+/*
+* =================================================================
+*                          AUTHENTICATION
+*                          Chloe's Section
+* =================================================================
+*/
+
+.page-container {
+    height: 100%;
+}
+.container h1{
+    padding: 15px;
+    text-align: center;
+}
+
+.form-content{
+    position: center;
+    border:2px solid #cccccc;
+    padding: 15px;
+    width: fit-content;
+    height: fit-content;
+    margin: 0 auto;
+}
+
+.form-row {
+    padding: 5px;
+}
+
+.form-col {
+    float: left;
+    width: 50%;
+    padding: 5px 1px;
+}

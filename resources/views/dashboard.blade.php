@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>Dashboard</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -404,7 +404,7 @@
 {{View::make('header')}}
 <div class="bg"></div>
 <h1 class="first-txt">
-    Welcome to InGame Emporium!
+    You're logged in!
 </h1>
 {{View::make('footer')}}
 </body>
