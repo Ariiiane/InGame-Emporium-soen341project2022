@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AuthController;
@@ -32,9 +33,7 @@ Route::get('/seller', function () {
 });
 
 Route::get('/browsing/{department}', [ProductController::class, 'get_products_by_department']);
-Route::get('/cart', function () {
-    return view('cart');
-});
+Route::get('/cart', [CartController::class, 'show']);
 
 Route::get('/browsing', [ProductController::class, 'get_products']);
 
