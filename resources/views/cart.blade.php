@@ -71,6 +71,9 @@
     </div>
 </div>
 
-{{View::make('footer')}}
+
+<div class="footer-cart">
+    {{View::make('footer')}}
+</div>
 </body>
 </html>
