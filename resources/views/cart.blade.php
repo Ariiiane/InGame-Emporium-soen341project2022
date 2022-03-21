@@ -45,13 +45,15 @@
                 <div class = "font-name-item">
                     {{$cart->product->description}}
                 </div>
-                <div class="font-delete">
-                    Delete
-                </div>
+                <form action="{{route('cart.destroy',[$cart->id])}}" method="POST">
+                    @method('DELETE')
+                    @csrf
+                    <button class="font-delete" type="submit">Delete</button>
+                </form>
             </div>
             <div class="column-price">
                 <div class="font-price">
-                    {{$cart->product->price}}
+                    $ {{$cart->product->price}}
                 </div>
             </div>
         </div>
@@ -59,13 +61,13 @@
         <div class="line">
         </div>
         <div class="font-price">
-            Total: {{$total}}
+            Total: $ {{$total}}
         </div>
     </div>
 
     <div class="box-checkout">
         <div class="font-checkout-price">
-            Total: {{$total}}
+            Total: $ {{$total}}
         </div>
         <div class="checkout-btn">
             Proceed to Checkout
