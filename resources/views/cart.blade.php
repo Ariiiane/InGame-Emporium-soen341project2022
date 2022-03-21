@@ -34,15 +34,16 @@
         </div>
         <div class="line">
         </div>
+        @foreach ($cartItems as $cart)
         <div class="row-title-cart">
             <img class="image-product"
-                src="https://i.stack.imgur.com/wPh0S.jpg" alt="item">
+                 src="{{url('')}}{{ $cart->product->image_path }}" alt="item">
             <div class="column-info-item">
                 <div class = "font-name-item">
-                    Name of the product
+                    {{$cart->product->name}}
                 </div>
                 <div class = "font-name-item">
-                    Description of the product
+                    {{$cart->product->description}}
                 </div>
                 <div class="font-delete">
                     Delete
@@ -50,20 +51,21 @@
             </div>
             <div class="column-price">
                 <div class="font-price">
-                    $XX.XX
+                    {{$cart->product->price}}
                 </div>
             </div>
         </div>
+        @endforeach
         <div class="line">
         </div>
         <div class="font-price">
-            Total:$XX.XX
+            Total: {{$total}}
         </div>
     </div>
 
     <div class="box-checkout">
         <div class="font-checkout-price">
-            Total:$XX.XX
+            Total: {{$total}}
         </div>
         <div class="checkout-btn">
             Proceed to Checkout
@@ -71,8 +73,7 @@
     </div>
 </div>
 
-
-<div class="footer-cart">
+    <div class="footer-cart">
     {{View::make('footer')}}
 </div>
 </body>
