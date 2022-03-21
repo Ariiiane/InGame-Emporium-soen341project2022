@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -22,9 +23,16 @@ class CartController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request, Product $product)
     {
-        //
+        if ($request->user()) {
+            Cart::create([
+                'user_id' => $request->user()->id,
+                'product_id' => $product->id
+            ]);
+        }
+
+        return redirect('/browsing/' . $product->department);
     }
 
     /**
@@ -89,9 +97,9 @@ class CartController extends Controller
      * @param \App\Models\Cart $cart
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cart $cart)
+    public function destroy(Request $request, Cart $cart)
     {
         $cart->delete();
-        $this->show();
+        return redirect('/cart');
     }
 }
