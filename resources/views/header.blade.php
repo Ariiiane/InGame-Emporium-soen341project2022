@@ -25,9 +25,12 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link">Cart</a>
+                    <a class="nav-link" href="{{url('')}}/cart">Cart</a>
                 </li>
             </ul>
+          </li>
+        </ul>
+      </div>
             <div>
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     @if (Route::has('login'))
