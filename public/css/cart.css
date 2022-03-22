@@ -5,15 +5,14 @@ body, html {
 }
 
 .footer-cart{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+
 }
 
 
 .background-cart {
     display: flex;
     flex-direction: row;
+    min-height: calc(100vh - 55.98 - 209.91);
 }
 
 .box-item {
