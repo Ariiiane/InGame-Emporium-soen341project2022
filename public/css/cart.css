@@ -12,7 +12,7 @@ body, html {
 .background-cart {
     display: flex;
     flex-direction: row;
-    min-height: calc(100vh - 55.98 - 209.91);
+    min-height: calc(100vh - 55.98px - 209.91px);
 }
 
 .box-item {
