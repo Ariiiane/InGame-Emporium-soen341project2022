@@ -24,6 +24,7 @@ class UserFactory extends Factory
             'postal_code' => 'h0h0h0',
             'province' => 'TABARNAK',
             'address' => '1234 Test st',
+
         ];
     }
 }
