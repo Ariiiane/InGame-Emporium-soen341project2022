@@ -25,12 +25,9 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{url('')}}/cart">Cart</a>
+                    <a class="nav-link">Cart</a>
                 </li>
             </ul>
-          </li>
-        </ul>
-      </div>
             <div>
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     @if (Route::has('login'))
@@ -38,10 +35,7 @@
                             <li class="nav-item">
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
-
-                                    <a class="nav-link" href="route('logout')"
-                                                     onclick="event.preventDefault();
-                                                this.closest('form').submit();">
+                                    <a class="nav-link" href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
                                         Logout
                                     </a>
                                 </form>
