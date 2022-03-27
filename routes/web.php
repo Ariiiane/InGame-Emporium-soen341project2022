@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AuthController;
@@ -30,6 +31,11 @@ Route::get('/buyer', function () {
 Route::get('/seller', function () {
     return view('seller');
 });
+
+Route::get('/browsing/{department}', [ProductController::class, 'get_products_by_department']);
+Route::get('/cart', [CartController::class, 'show']);
+Route::post('/cart/{product}', [CartController::class, 'create'])->name('cart.create');
+Route::delete('/cart/{cart}', [CartController::class, 'destroy'])->name('cart.destroy');
 
 Route::get('/browsing', [ProductController::class, 'get_products']);
 
