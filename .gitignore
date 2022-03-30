@@ -15,6 +15,7 @@ yarn-error.log
 /.vscode
 .editorconfig
 .env.example
+.env.testing
 .gitattributes
 .styleci.yml
 artisan
