@@ -52,6 +52,10 @@ Route::get('/browsing', [ProductController::class, 'get_products']);
 
 Route::resource('products', ProductController::class);
 
+Route::get('/checkout', function () {
+    return view('checkout');
+});
+
 // Chloe for Auth
 //Route::get('user-list', [AuthController::class, 'index'])->name('user.list');
 //Route::get('login', [AuthController::class, 'login'])->name('login');
