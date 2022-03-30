@@ -24,40 +24,42 @@
     <div class="col-6 text-center">
       <h3>Checkout</h3>
       <div class="card my-4">
-        <div class="card-header">Verify Billing Information</div>
+        <div class="card-header">Verify Delivery Information</div>
         <div class="card-body">
-            <form>
+            <form method="POST" id="delivery-info" action="{{url('/order_confirmation')}}">
+            @csrf <!-- {{ csrf_field() }} -->
                 <div class="row">
                     <div class="col">
                         <label for="input_first_name">First Name</label>
-                        <input type="text" class="form-control" id="input_first_name" value="{{$info->first_name}}">
+                        <input type="text" class="form-control" id="input_first_name" name="first_name" value="{{$info->first_name}}">
                     </div>
                     <div class="col">
                         <label for="input_last_name">Last Name</label>
-                        <input type="text" class="form-control" id="input_last_name" value="{{$info->last_name}}">
+                        <input type="text" class="form-control" id="input_last_name" name="last_name" value="{{$info->last_name}}">
                     </div>
                 </div>
                 </br>
                 <div class="form-group">
                     <label for="input_email">Email</label>
-                    <input type="email" class="form-control" id="input_email" value="{{$info->email}}">
+                    <input type="email" class="form-control" id="input_email" name="email" value="{{$info->email}}">
                 </div>
                 </br>
                 <div class="form-group">
                     <label for="input_address">Address</label>
-                    <input type="text" class="form-control" id="input_address" value="{{$info->address}}">
+                    <input type="text" class="form-control" id="input_address" name="address" value="{{$info->address}}">
                 </div>
                 </br>
                 <div class="row">
                     <div class="col">
                         <label for="input_province">Province</label>
-                        <input type="text" class="form-control" id="input_province" value="{{$info->province}}">
+                        <input type="text" class="form-control" id="input_province" name="province" value="{{$info->province}}">
                     </div>
                     <div class="col">
                         <label for="input_postal_code">Postal Code</label>
-                        <input type="text" class="form-control" id="input_postal_code" value="{{$info->postal_code}}">
+                        <input type="text" class="form-control" id="input_postal_code" name="postal_code" value="{{$info->postal_code}}">
                     </div>
                 </div>
+                <input type="hidden" id="total" name="total" value="{{$totals[2]}}">
             </form>
         </div>
       </div>
@@ -97,8 +99,9 @@
                 </div>
             </div>
         </div>
+
         <!-- TODO Post the form info to the payments page, where all the info will be saved in DB-->
-        <a href="{{url('/order_confirmation')}}" class="btn btn-primary" {{$message[1]}}>Confirm order</a></br>
+        <button type="submit" form="delivery-info" class="btn btn-primary" {{$message[1]}}>Confirm order</button></br>
         <a href="{{url('/cart')}}" class="btn my-2" style="background: gray;">Back to cart</a>
     </div>
   </div>

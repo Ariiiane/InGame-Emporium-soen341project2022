@@ -44,6 +44,8 @@ Route::get('/browsing', [ProductController::class, 'get_products']);
 Route::resource('products', ProductController::class);
 
 Route::get('/checkout', [CheckoutController::class, 'index']);
+Route::post('/order_confirmation', [CheckoutController::class, 'success']);
+
 
 
 // Chloe for Auth
