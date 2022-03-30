@@ -42,4 +42,9 @@ class CheckoutController extends Controller
         $totals = [$subtotal, $tax, $total];
         return view('checkout',['message'=>$msg, 'totals'=>$totals, 'items'=>$userItems, 'info'=>$userInfo]);
     }
+
+    public function success()
+    {
+        return view('order_confirmation');
+    }
 }
