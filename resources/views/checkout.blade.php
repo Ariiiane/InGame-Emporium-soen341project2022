@@ -98,7 +98,7 @@
             </div>
         </div>
         <!-- TODO Post the form info to the payments page, where all the info will be saved in DB-->
-        <button href="{{url('/order_confirmation')}}" class="btn btn-primary" {{$message[1]}}>Confirm order</button></br>
+        <a href="{{url('/order_confirmation')}}" class="btn btn-primary" {{$message[1]}}>Confirm order</a></br>
         <a href="{{url('/cart')}}" class="btn my-2" style="background: gray;">Back to cart</a>
     </div>
   </div>
