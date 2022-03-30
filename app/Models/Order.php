@@ -17,6 +17,7 @@ class Order extends Model
         'delivery_address',
         'shipping_speed',
         'billing_address',
+        'total',
         'payment_card_number',
         'payment_card_expiry',
         'payment_card_cvv',
