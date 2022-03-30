@@ -19,7 +19,6 @@
 </head>
 <body>
 {{View::make('header')}}
-
 <div class="text-center">
 <h1> Order Confirmation </h1>
 <h4> Thank you for shopping at InGame Emporium! </h4>
@@ -29,10 +28,11 @@
 <div class="card my-4">
     <div class="card-header text-center">Order Details</div>
     <ul class="list-group list-group-flush">
-        <li class="list-group-item">An item</li>
-        <li class="list-group-item">A second item</li>
-        <li class="list-group-item">A third item</li>
+        <li class="list-group-item">Order #: {{$orderInfo[0]}}</li>
+        <li class="list-group-item">Delivery address: {{$orderInfo[1]}}</li>
+        <li class="list-group-item">Order date: {{$orderInfo[2]}}</li>
     </ul>
+    <div class="card-footer bg-transparent text-center">For more details, go to your profile and find this order!</div>
 </div>
 </div>
 

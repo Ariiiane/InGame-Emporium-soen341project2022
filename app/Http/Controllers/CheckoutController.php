@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use DB;
 use App\Models\Cart;
 use App\Models\User;
+use App\Models\Order;
+use App\Models\Sale;
+
+use Carbon\Carbon;
 
 use Illuminate\Http\Request;
 
@@ -43,8 +47,54 @@ class CheckoutController extends Controller
         return view('checkout',['message'=>$msg, 'totals'=>$totals, 'items'=>$userItems, 'info'=>$userInfo]);
     }
 
-    public function success()
+    public function success(Request $request)
     {
-        return view('order_confirmation');
+        // Upload order info to orders table
+        $now = Carbon::now();
+        $nowReadable = $now->toDateTimeString();
+        $now = $now->format('YmdHis');
+
+        $delivery = $request->post();
+
+        $orderId = $request->user()->id.$now;
+        $deliveryAddress = $delivery['address'].','.$delivery['province'].','.$delivery['postal_code'];
+        
+        if ($request->user()) {
+            Order::create([
+                'order_id' => $orderId,
+                'customer_id' => $request->user()->id,
+                'order_date' => $now,
+                'delivery_date' => "",
+                'delivery_address' => $deliveryAddress,
+                'shipping_speed' => "standard",
+                'billing_address' => "Just check customer_id to find their billing address :^)",
+                'total' => $delivery['total'],
+
+                'payment_card_number' => "",
+                'payment_card_expiry' => "",
+                'payment_card_cvv' => "",
+                'payment_card_name' => "",
+            ]);
+        }
+
+        // Upload sales info to sales table (items)
+        $userItems = Cart::query()->with('product')->where('user_id', '=', $request->user()->id)->get();
+        foreach ($userItems as $item) {
+            Sale::create([
+                'product_id' => $item->product->product_id,
+                'order_id' => $orderId,
+                'format' => "un",
+                'quantity' => 1,
+            ]);
+        }
+
+        // Empty cart
+        Cart::where('user_id',$request->user()->id)->delete();
+
+
+        // Not decrementing stock, because that would be up to our warehouse to manage that.
+        $orderInfo = [$orderId, $deliveryAddress, $nowReadable];
+
+        return view('order_confirmation', ['orderInfo'=>$orderInfo]);
     }
 }
