@@ -30,32 +30,32 @@
                 <div class="row">
                     <div class="col">
                         <label for="input_first_name">First Name</label>
-                        <input type="text" class="form-control" id="input_first_name" value="TODO \{\{\}\}">
+                        <input type="text" class="form-control" id="input_first_name" value="{{$info->first_name}}">
                     </div>
                     <div class="col">
                         <label for="input_last_name">Last Name</label>
-                        <input type="text" class="form-control" id="input_last_name" value="TODO \{\{\}\}">
+                        <input type="text" class="form-control" id="input_last_name" value="{{$info->last_name}}">
                     </div>
                 </div>
                 </br>
                 <div class="form-group">
                     <label for="input_email">Email</label>
-                    <input type="email" class="form-control" id="input_email" value="TODO \{\{\}\}">
+                    <input type="email" class="form-control" id="input_email" value="{{$info->email}}">
                 </div>
                 </br>
                 <div class="form-group">
                     <label for="input_address">Address</label>
-                    <input type="text" class="form-control" id="input_address" value="TODO \{\{\}\}">
+                    <input type="text" class="form-control" id="input_address" value="{{$info->address}}">
                 </div>
                 </br>
                 <div class="row">
                     <div class="col">
                         <label for="input_province">Province</label>
-                        <input type="text" class="form-control" id="input_province" value="TODO \{\{\}\}">
+                        <input type="text" class="form-control" id="input_province" value="{{$info->province}}">
                     </div>
                     <div class="col">
                         <label for="input_postal_code">Postal Code</label>
-                        <input type="text" class="form-control" id="input_postal_code" value="TODO \{\{\}\}">
+                        <input type="text" class="form-control" id="input_postal_code" value="{{$info->postal_code}}">
                     </div>
                 </div>
             </form>
@@ -68,12 +68,14 @@
         <div class="card my-4">
             <div class="card-header">Items & Total</div>
             <div class="card-body">
+                @foreach ($items as $item)
                 <!-- For each item in cart -->
                 <div class="row">
-                    <div class="col text-start"><img src="{{url('')}}/images/zelda/heart_container.png" width="40" height="40" alt="product"></div>
-                    <div class="col">Name</div>
-                    <div class="col text-end">Qty: X</div>
+                    <div class="col text-start"><img src="{{url('')}}{{ $item->product->image_path }}" width="40" height="40" alt="{{$item->product->name}}"></div>
+                    <div class="col">{{$item->product->name}}</div>
+                    <div class="col text-end">Qty: 1</div>
                 </div>
+                @endforeach
                 </br>
                 <div class="row">
                     <div class="col text-start">Shipping:</div>
@@ -83,21 +85,31 @@
             <div class="card-footer bg-transparent">
                 <div class="row">
                     <div class="col text-start">SUBTOTAL:</div>
-                    <div class="col text-end">$XX.XX</div>
+                    <div class="col text-end">${{$totals[0]}}.00</div>
                 </div>
                 <div class="row">
                     <div class="col text-start">Taxes:</div>
-                    <div class="col text-end">$xx.xx</div>
+                    <div class="col text-end">${{$totals[1]}}</div>
                 </div>
                 <div class="row fw-bold">
                     <div class="col text-start">TOTAL:</div>
-                    <div class="col text-end">$XX.XX</div>
+                    <div class="col text-end">${{$totals[2]}}</div>
                 </div>
             </div>
         </div>
+        <!-- TODO Post the form info to the payments page, where all the info will be saved in DB-->
+        <button href="{{url('/order_confirmation')}}" class="btn btn-primary" {{$message[1]}}>Confirm order</button></br>
+        <a href="{{url('/cart')}}" class="btn my-2" style="background: gray;">Back to cart</a>
     </div>
   </div>
 </div>
 {{View::make('footer')}}
+
+<script>
+        if("{{$message[1]}}" == "disabled") {
+            alert('{{$message[0]}}\nRedirecting to browsing...');
+            window.location.replace("{{url('browsing/All')}}");
+        }
+</script>
 </body>
 </html>

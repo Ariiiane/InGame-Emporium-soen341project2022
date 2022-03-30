@@ -7,6 +7,8 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CheckoutController;
+
 
 use Illuminate\Support\Facades\Log;
 
@@ -52,9 +54,8 @@ Route::get('/browsing', [ProductController::class, 'get_products']);
 
 Route::resource('products', ProductController::class);
 
-Route::get('/checkout', function () {
-    return view('checkout');
-});
+Route::get('/checkout', [CheckoutController::class, 'index']);
+
 
 // Chloe for Auth
 //Route::get('user-list', [AuthController::class, 'index'])->name('user.list');
