@@ -69,9 +69,7 @@
         <div class="font-checkout-price">
             Total: $ {{$total}}
         </div>
-        <div class="checkout-btn">
-            Proceed to Checkout
-        </div>
+        <a class="checkout-btn" href="{{url('/checkout')}}">Proceed to Checkout </a>
     </div>
 </div>
 
