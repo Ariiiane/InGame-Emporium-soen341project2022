@@ -11,6 +11,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/checkout.css') }}" rel="stylesheet">
+
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
@@ -18,7 +20,11 @@
 
 </head>
 <body>
+<header>
 {{View::make('header')}}
+</header>
+
+<div class="content">
 <div class="container">
   <div class="row">
     <div class="col-6 text-center">
@@ -106,7 +112,11 @@
     </div>
   </div>
 </div>
+</div>
+
+<footer>
 {{View::make('footer')}}
+</footer>
 
 <script>
         if("{{$message[1]}}" == "disabled") {
