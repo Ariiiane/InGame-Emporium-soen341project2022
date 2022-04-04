@@ -11,21 +11,30 @@
             @csrf
             <div class="form-row">
                 <!-- First Name -->
-                <div class="form-col">
+                <div class="form-col" style="padding: 10px 1px">
                     <label for="first_name">First Name</label>
                     <div>
                         <input id="first_name" type="text" name="first_name" class="form-control" required/>
-
                     </div>
                 </div>
 
                 <!-- Last Name -->
-                <div class="form-col">
+                <div class="form-col" style="padding: 10px 1px">
                     <label for="last_name">Last Name</label>
                     <div>
                         <input id="last_name" type="text" name="last_name" class="form-control" required/>
-
                     </div>
+                </div>
+
+                <!-- Role -->
+                <div style="padding: 10px 1px">
+                    <label for="role">Role</label>
+                    <select name="role" id="role" required>
+                        <option>--</option>
+                        <option value="admin">admin</option>
+                        <option value="buyer">buyer</option>
+                        <option value="seller">seller</option>
+                    </select>
                 </div>
 
                 <!-- Email -->
@@ -80,9 +89,8 @@
                 </div>
                 <div class="form-col">
                     <div class="checkbox">
-                        <label>
-                            <input type="checkbox" name="remember"> Remember Me
-                        </label>
+                        <input type="checkbox" name="remember" value="lsRememberMe" id="rememberMe">
+                        <label for="rememberMe">Remember Me</label>
                     </div>
                 </div>
                 <div style="padding: 2px">
@@ -92,7 +100,6 @@
                 </div>
             </div>
         </form>
-
     </div>
 </x-guest-layout>
 

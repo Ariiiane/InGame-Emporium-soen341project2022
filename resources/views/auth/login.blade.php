@@ -2,7 +2,6 @@
 
 <x-guest-layout>
     <div class="container"><h1>Login</h1></div>
-
     <div class="form-content">
 
         <!-- Session Status -->
@@ -28,16 +27,14 @@
                     <label for="password">Password</label>
                     <div>
                         <input id="password" type="password" name="password" class="form-control" required autocomplete="new-password"/>
-
                     </div>
                 </div>
 
                 <!-- Remember Me -->
                 <div class="form-row">
                     <div class="checkbox">
-                        <label>
-                            <input type="checkbox" name="remember"> Remember Me
-                        </label>
+                        <input type="checkbox" name="remember" value="lsRememberMe" id="rememberMe">
+                        <label for="rememberMe">Remember Me</label>
                     </div>
                 </div>
                 <div style="padding: 2px">
