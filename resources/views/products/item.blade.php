@@ -1,32 +1,33 @@
 @extends('products.layout')
 @section('content')
 <div class="bg"></div>
-<h1 class="text-center">{{ $department }}</h1>
+
 <div class="row">
   <div class="col-8">
   <div class="row" style="margin-bottom: 20px;">
-    @foreach ($products as $product)
+    
     <div class="col">
-        <div class="card" style="width: 16rem;">
+        <div class="card" style="width: 47rem;">
             <img src="{{url('')}}{{ $product->image_path }}" class="card-img-top" alt="{{ $product->image_path }}">
             <div class="card-body">
                 <h5 class="card-title">{{ $product->name }}</h5>
                 <p class="card-text">
-                    </br>
+                    <div>Item description: {{ $product->description }}</div>
                     Price: ${{ $product->price }}
                     <div>Manufacturer: {{ $product->manufacturer }}</div>
-                    items left in stock: {{ $product->inventory}}
+                    Items left in stock: {{ $product->inventory}} {{ $product->unit}}
+                    <div>Description: {{ $product->description }}</div>
+                    Department: {{ $product->department}}
                 </p>
                 <form action="{{route('cart.create',[$product->id])}}" method="POST">
                     @method('POST')
                     @csrf
-                    <button class="btn btn-primary" type="submit">Add to cart</button>&nbsp &nbsp<a href="{{url('/browsing/item')}}/{{ $product->product_id }}"class="btn btn-primary" type="submit">See Details</a>
+                    <button class="btn btn-primary" type="submit">Add to cart</button>
                 </form>
             </div>
         </div>
-        </br>
     </div>
-    @endforeach
+    
 </div>
 </div>
     <div class="col-4">
