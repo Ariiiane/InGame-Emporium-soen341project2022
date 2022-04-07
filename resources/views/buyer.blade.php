@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -21,14 +22,17 @@
         </style>
     </head>
     <body>
-        {{View::make('userHeader')}}
+        {{View::make('header')}}
         <div class="identification">
         <img src="../images/profilePicture.jpg" alt="Profile Picture" class="profile">
-        <p class="username">Username</p>
+        <p class="username"> <b> {{ Auth::user()->first_name }} {{ Auth::user()->last_name }} </b></p>
         </div>
+        
 
         <div class="options">
-        <button class="btn btn-outline-primary">Edit Profile</button>
+        <a href='/edit'>
+            <button class="btn btn-outline-primary">Edit Profile</button>
+        </a>
         <button class="btn btn-outline-primary">Orders</button>
         <button class="btn btn-outline-primary">Wish List</button>
         </div>
@@ -73,15 +77,15 @@
 
         <div>
         <h5>Email Address</h5>
-        <p class="info-txt">buyer@user.com</p>
+        <p class="info-txt">{{ Auth::user()->email }}</p>
         </div>
 
         <div>
-        <h5>Phone Number</h5>
-        <p class="info-txt">000 000 0000</p>
+        <h5>Address</h5>
+        <p class="info-txt">{{ Auth::user()->address}} {{ Auth::user()->province }} {{ Auth::user()->postal_code }}</p>
         </div>
         
         </div>
-        {{View::make('userFooter')}}
+        {{View::make('footer')}}
     </body>
 </html>

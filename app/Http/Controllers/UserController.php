@@ -7,7 +7,23 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Session;
 use App\Models\User;
-use Hash;
+use Illuminate\Support\Facades\Log;
+
+
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Auth\LoginRequest;
+use App\Providers\RouteServiceProvider;
+##use Illuminate\Http\Request;
+##use Illuminate\Support\Facades\Auth;
+
+//use App\Http\Controllers\Controller;
+##use App\Models\User;
+//use App\Providers\RouteServiceProvider;
+//use Illuminate\Auth\Events\Registered;
+//use Illuminate\Http\Request;
+//use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules;
 
 
 class UserController extends Controller
@@ -70,7 +86,7 @@ class UserController extends Controller
     {
         $request->validate([
             'user_id' => 0,
-            'role' => "user",
+            'role' => 'required',
             'first_name' => 'required',
             'last_name' => 'required',
             'email' => 'required|email|unique:users',
@@ -127,12 +143,65 @@ class UserController extends Controller
      * Write code on Method
      *
      * @return response()
-     */
-    public function logout() {
+     * 
+     * 
+     public function logout() {
         Session::flush();
         Auth::logout();
 
         return Redirect('login');
+    }
+     */
+    
+
+    public function display(Request $request)
+    {
+        ##$data = User::all();
+        $data = 'Hello';
+        ##return view('buyer', ['loggedInUser' => $loggedInUser] );
+        return view('buyer', compact('data') );
+    }
+
+    public function editUser(Request $request)
+    {
+        $user = User::where('user_id', Auth::user()->user_id)->first();
+
+        if ($request->email) {
+            $user->email = $request->email;
+        }
+
+        if ($request->address) {
+            $user->address = $request->address;
+        }
+
+        if ($request->province) {
+            $user->province = $request->province;
+        }
+
+        if ($request->postal_code) {
+            $user->postal_code = $request->postal_code;
+        }
+
+        if ($request->new_password) {
+                $user->password = Hash::make($request->new_password);
+        }
+
+        if ($request->description) {
+            $description = $request->description;
+    }
+
+        $user->save();
+
+        if (Auth::user()->role == 'buyer') {
+            return view('/buyer');
+        } else if (Auth::user()->role == 'seller')  {
+                return view('/seller');
+            }
+        else {
+                return view('/admin');
+            }
+            
+        
     }
 }
 
