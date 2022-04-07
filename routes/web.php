@@ -8,8 +8,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Log;
-use App\Http\Controllers\CheckoutController;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -43,7 +41,6 @@ Route::get('/edit', function () {
 });
 
 Route::get('/browsing/{department}', [ProductController::class, 'get_products_by_department']);
-Route::get('/browsing/item/{product_id}', [ProductController::class, 'get_products_by_id']);
 Route::get('/cart', [CartController::class, 'show']);
 Route::post('/cart/{product}', [CartController::class, 'create'])->name('cart.create');
 Route::delete('/cart/{cart}', [CartController::class, 'destroy'])->name('cart.destroy');
@@ -68,8 +65,6 @@ Route::get('/buyer', [RegisteredUserController::class,'display']);
 Route::post('edit', [UserController::class, 'editUser'])->name('edit');
 
 
-Route::get('/checkout', [CheckoutController::class, 'index']);
-Route::post('/order_confirmation', [CheckoutController::class, 'success']);
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');

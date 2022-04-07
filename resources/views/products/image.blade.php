@@ -12,19 +12,19 @@
             <div class="card-body">
                 <h5 class="card-title">{{ $product->name }}</h5>
                 <p class="card-text">
+                    <div>{{ $product->description }}</div>
                     </br>
                     Price: ${{ $product->price }}
                     <div>Manufacturer: {{ $product->manufacturer }}</div>
-                    items left in stock: {{ $product->inventory}}
+                    items left in stock: ${{ $product->inventory}}
                 </p>
                 <form action="{{route('cart.create',[$product->id])}}" method="POST">
                     @method('POST')
                     @csrf
-                    <button class="btn btn-primary" type="submit">Add to cart</button>&nbsp &nbsp<a href="{{url('/browsing/item')}}/{{ $product->product_id }}"class="btn btn-primary" type="submit">See Details</a>
+                    <button class="btn btn-primary" type="submit">Add to cart</button>
                 </form>
             </div>
         </div>
-        </br>
     </div>
     @endforeach
 </div>
