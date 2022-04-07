@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Log;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,18 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+/*
+Route::middleware('auth:sanctum')->post('/edit', function (Request $request) {
+    //return $request->user();
+    Log::info(["hello"]);
+});
+
+
+Route::post('edit', function () {
+    Log::info(["hello World"]);
+})->name('edit');;
+
+
+*/
+
