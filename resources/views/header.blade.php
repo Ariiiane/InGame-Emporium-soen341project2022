@@ -41,17 +41,17 @@
                         @auth
                             @if (Auth::user()->role == 'buyer')
                             <li class="nav-item">
-                                    <a class="nav-link" href="/buyer"> Profile</a>
+                                    <a class="nav-link" href="{{url('')}}/buyer"> Profile</a>
                                 </form>
                             </li>
                             @elseif (Auth::user()->role == 'seller')
                             <li class="nav-item">
-                                    <a class="nav-link" href="/seller"> Profile</a>
+                                    <a class="nav-link" href="{{url('')}}/seller"> Profile</a>
                                 </form>
                             </li>
                             @else
                             <li class="nav-item">
-                                    <a class="nav-link" href="/admin"> Profile</a>
+                                    <a class="nav-link" href="{{url('')}}/admin"> Profile</a>
                                 </form>
                             </li>
                             @endif
