@@ -21,16 +21,19 @@
         </style>
     </head>
     <body>
-        {{View::make('header')}}
+        {{View::make('userHeader')}}
         <div class="identification">
         <img src="../images/profilePicture.jpg" alt="Profile Picture" class="profile">
-        <p class="username">{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</p>
+        <p class="username">Username</p>
+
+        <h4>Description</h4>
+        <ul>
+        </ul>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ac tortor dignissim convallis aenean et. Erat nam at lectus urna duis convallis.</p>
         </div>
 
         <div class="options">
-        <a href='/edit'>
-            <button class="btn btn-outline-primary">Edit Profile</button>
-        </a>
+        <button class="btn btn-outline-primary">Edit Profile</button>
         <button class="btn btn-outline-primary">Orders</button>
         <button class="btn btn-outline-primary">Products List</button>
         </div>
@@ -74,15 +77,15 @@
 
         <div>
         <h5>Email Address</h5>
-        <p class="info-txt">{{ Auth::user()->email }}</p>
+        <p class="info-txt">seller@user.com</p>
         </div>
 
         <div>
-        <h5>Address</h5>
-        <p class="info-txt">{{ Auth::user()->address}} {{ Auth::user()->province }} {{ Auth::user()->postal_code }}</p>
+        <h5>Phone Number</h5>
+        <p class="info-txt">000 000 0000</p>
         </div>
         
         </div>
-        {{View::make('footer')}}
+        {{View::make('userFooter')}}
     </body>
 </html>
