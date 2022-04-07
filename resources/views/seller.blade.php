@@ -23,7 +23,7 @@
     <body>
         {{View::make('header')}}
         <div class="identification">
-        <img src="../images/profilePicture.jpg" alt="Profile Picture" class="profile">
+        <img src="../public/images/profilePicture.jpg" alt="Profile Picture" class="profile">
         <p class="username">{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</p>
         </div>
 
@@ -81,7 +81,7 @@
         <h5>Address</h5>
         <p class="info-txt">{{ Auth::user()->address}} {{ Auth::user()->province }} {{ Auth::user()->postal_code }}</p>
         </div>
-        
+
         </div>
         {{View::make('footer')}}
     </body>
