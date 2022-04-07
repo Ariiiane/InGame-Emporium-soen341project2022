@@ -35,6 +35,22 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     @if (Route::has('login'))
                         @auth
+                            @if (Auth::user()->role == 'buyer')
+                            <li class="nav-item">
+                                    <a class="nav-link" href="/buyer"> Profile</a>
+                                </form>
+                            </li>
+                            @elseif (Auth::user()->role == 'seller')
+                            <li class="nav-item">
+                                    <a class="nav-link" href="/seller"> Profile</a>
+                                </form>
+                            </li>
+                            @else
+                            <li class="nav-item">
+                                    <a class="nav-link" href="/admin"> Profile</a>
+                                </form>
+                            </li>
+                            @endif
                             <li class="nav-item">
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf

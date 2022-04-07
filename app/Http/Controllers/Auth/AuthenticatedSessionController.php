@@ -7,6 +7,16 @@ use App\Http\Requests\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
+
+//use App\Http\Controllers\Controller;
+use App\Models\User;
+//use App\Providers\RouteServiceProvider;
+//use Illuminate\Auth\Events\Registered;
+//use Illuminate\Http\Request;
+//use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -50,5 +60,14 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/');
+    }
+
+
+    public function display(Request $request)
+    {
+        ##$data = User::where('email',$request->email)->get();
+        $data = User::all();
+        $test = ['name' => $data] ;
+        return view('buyer', $test);
     }
 }
