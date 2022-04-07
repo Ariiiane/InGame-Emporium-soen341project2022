@@ -1,13 +1,16 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AuthController;
-<<<<<<< HEAD
-=======
+
 use Illuminate\Support\Facades\Log;
->>>>>>> parent of f79b602e (Merge branch 'main' of https://github.com/Ariiiane/InGame-Emporium-soen341project2022)
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +36,11 @@ Route::get('/buyer', function () {
 });
 
 Route::get('/seller', function () {
-    return view('seller');
+    return view('/seller');
+});
+
+Route::get('/edit', function () {
+    return view('edit');
 });
 
 Route::get('/browsing/{department}', [ProductController::class, 'get_products_by_department']);
@@ -45,8 +52,6 @@ Route::get('/browsing', [ProductController::class, 'get_products']);
 
 Route::resource('products', ProductController::class);
 
-<<<<<<< HEAD
-=======
 // Chloe for Auth
 //Route::get('user-list', [AuthController::class, 'index'])->name('user.list');
 //Route::get('login', [AuthController::class, 'login'])->name('login');
@@ -63,7 +68,6 @@ Route::get('/buyer', [RegisteredUserController::class,'display']);
 Route::post('edit', [UserController::class, 'editUser'])->name('edit');
 
 
->>>>>>> parent of f79b602e (Merge branch 'main' of https://github.com/Ariiiane/InGame-Emporium-soen341project2022)
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
