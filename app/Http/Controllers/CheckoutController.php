@@ -31,7 +31,7 @@ class CheckoutController extends Controller
         if ($request->user()) {
             $userItems = Cart::query()->with('product')->where('user_id', '=', $request->user()->id)->get();
             $userInfo = User::query()->where('id', '=', $request->user()->id)->first();
-            
+
             foreach ($userItems as $item) {
                 $subtotal += $item->product->price;
             }
@@ -59,6 +59,7 @@ class CheckoutController extends Controller
         $orderId = $request->user()->id.$now;
         $deliveryAddress = $delivery['address'].','.$delivery['province'].','.$delivery['postal_code'];
         
+
         if ($request->user()) {
             Order::create([
                 'order_id' => $orderId,

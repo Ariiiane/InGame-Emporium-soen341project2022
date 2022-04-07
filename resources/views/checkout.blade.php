@@ -106,6 +106,51 @@
             </div>
         </div>
 
+        <div class="col-6 text-center">
+            <h3>Payment</h3>
+            <div class="card my-4">
+              <div class="card-header">Card Information</div>
+              <div class="card-body">
+                  <form method="POST" id="delivery-info" action="{{url('/order_confirmation')}}">
+                  @csrf <!-- {{ csrf_field() }} -->
+                      <div class="row">
+                        <h6>Select Payment Method</h6>
+                        <label class="container">Credit
+                          <input type="radio" checked="checked" name="radio">
+                          <span class="checkmark"></span>
+                        </label>
+                        <label class="container">Debit
+                          <input type="radio" name="radio">
+                          <span class="checkmark"></span>
+                        </label>
+                          <div class="col">
+                              <label for="input_first_name">Name On Card</label>
+                              <input type="text" class="form-control" id="input_full_name" name="full_name" value="">
+                          </div>
+                      </div>
+                      </br>
+                      <div class="form-group">
+                          <label for="input_email">Card Number</label>
+                          <input type="email" class="form-control" id="input_card_number" name="cardnb" value="">
+                      </div>
+                      </br>
+                      <div class="form-group">
+                          <label for="input_address">MM/YYYY</label>
+                          <input type="text" class="form-control" id="input_expiration_date" name="expdate" value="">
+                      </div>
+                      </br>
+                      <div class="row">
+                          <div class="col">
+                              <label for="input_postal_code">CVV</label>
+                              <input type="text" class="form-control" id="input_cvv" name="cvv" value="">
+                          </div>
+                      </div>
+                  </form>
+              </div>
+            </div>
+          </div>
+
+
         <!-- TODO Post the form info to the payments page, where all the info will be saved in DB-->
         <button type="submit" form="delivery-info" class="btn btn-primary" {{$message[1]}}>Confirm order</button></br>
         <a href="{{url('/cart')}}" class="btn my-2" style="background: gray;">Back to cart</a>
