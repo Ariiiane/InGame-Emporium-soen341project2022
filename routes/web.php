@@ -35,6 +35,7 @@ Route::get('/seller', function () {
 });
 
 Route::get('/browsing/{department}', [ProductController::class, 'get_products_by_department']);
+Route::get('/browsing/item/{product_id}', [ProductController::class, 'get_products_by_id']);
 Route::get('/cart', [CartController::class, 'show']);
 Route::post('/cart/{product}', [CartController::class, 'create'])->name('cart.create');
 Route::delete('/cart/{cart}', [CartController::class, 'destroy'])->name('cart.destroy');
@@ -45,18 +46,6 @@ Route::resource('products', ProductController::class);
 
 Route::get('/checkout', [CheckoutController::class, 'index']);
 Route::post('/order_confirmation', [CheckoutController::class, 'success']);
-
-
-
-// Chloe for Auth
-//Route::get('user-list', [AuthController::class, 'index'])->name('user.list');
-//Route::get('login', [AuthController::class, 'login'])->name('login');
-//Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post');
-//Route::get('registration', [AuthController::class, 'registration'])->name('register');
-//Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('register.post');
-//Route::get('dashboard', [AuthController::class, 'dashboard']);
-//Route::get('logout', [AuthController::class, 'logout'])->name('logout');
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
