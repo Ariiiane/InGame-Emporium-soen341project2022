@@ -25,13 +25,11 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    @if (Route::has('login'))
                         @auth
                             <a class="nav-link" href="{{url('')}}/cart">Cart</a>
                         @else
                             <a class="nav-link" href="<?php echo e(route('login')); ?>">Cart</a>
                         @endauth
-                    @endif
                 </li>
             </ul>
           </li>
