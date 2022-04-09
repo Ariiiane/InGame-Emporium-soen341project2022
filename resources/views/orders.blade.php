@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Seller Profile</title>
+        <title>Buyer Profile</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -22,66 +22,42 @@
     </head>
     <body>
         {{View::make('header')}}
-        <div class="identification">
-        <img src="../public/images/profilePicture.jpg" alt="Profile Picture" class="profile">
-        <p class="username">{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</p>
-        </div>
 
-        <div class="options">
-        <a href="{{url('')}}/edit">
-            <button class="btn btn-outline-primary">Edit Profile</button>
-        </a>
-        <button class="btn btn-outline-primary">Orders</button>
-        <button class="btn btn-outline-primary">Products List</button>
-        </div>
+        <div class="orders">
+        <h4>Recent Orders</h4>
 
-        <div class="inventory">
-        <h4>Inventory</h4>
+        {{$data}}
+
         <table style="width: 100%;">
         <tr>
-        <th>Items</th>
-        <th>Description</th>
-        <th>Quantity</th>
-        <th>Sell Price</th>
+        <th>Order #</th>
+        <th>Order Date</th>
+        <th>Delivery Date</th>
+        <th>Delivery Address</th>
         </tr>
 
         <tr>
-        <td>Item 1</td>
+        <td>084040</td>
         <td>Lorem ipsum dolor sit amet.</td>
-        <td>XX</td>
-        <td>$XX.XX</td>
+        <td>20XX/XX/XX</td>
+        <td>$XXX.XX</td>
         </tr>
 
         <tr>
-        <td>Item 2</td>
+        <td>073738</td>
         <td>Lorem ipsum dolor sit amet.</td>
-        <td>XX</td>
-        <td>$XX.XX</td>
+        <td>20XX/XX/XX</td>
+        <td>$XXX.XX</td>
         </tr>
 
         <tr>
-        <td>Item 3</td>
+        <td>059474</td>
         <td>Lorem ipsum dolor sit amet.</td>
-        <td>XX</td>
-        <td>$XX.XX</td>
+        <td>20XX/XX/XX</td>
+        <td>$XXX.XX</td>
         </tr>
 
         </table>
-        </div>
-
-        <div class="info">
-        <h4>Information</h4>
-
-        <div>
-        <h5>Email Address</h5>
-        <p class="info-txt">{{ Auth::user()->email }}</p>
-        </div>
-
-        <div>
-        <h5>Address</h5>
-        <p class="info-txt">{{ Auth::user()->address}} {{ Auth::user()->province }} {{ Auth::user()->postal_code }}</p>
-        </div>
-
         </div>
         {{View::make('footer')}}
     </body>

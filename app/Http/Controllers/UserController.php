@@ -7,24 +7,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Session;
 use App\Models\User;
-use Hash;
 use Illuminate\Support\Facades\Log;
-
-
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
-##use Illuminate\Http\Request;
-##use Illuminate\Support\Facades\Auth;
-
-//use App\Http\Controllers\Controller;
-##use App\Models\User;
-//use App\Providers\RouteServiceProvider;
-//use Illuminate\Auth\Events\Registered;
-//use Illuminate\Http\Request;
-//use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
+use Illuminate\Support\Facades\DB;
 
 
 class UserController extends Controller
@@ -144,13 +133,14 @@ class UserController extends Controller
      * Write code on Method
      *
      * @return response()
-     */
+   
     public function logout() {
         Session::flush();
         Auth::logout();
 
         return Redirect('login');
     }
+      */
     
 
     public function display(Request $request)
@@ -201,6 +191,16 @@ class UserController extends Controller
             }
             
         
+    }
+
+    public function showOrders()
+    {
+      $ordersData = DB::table('users')->join('orders', 'users.user_id', '=', 'orders.customer_id')
+      ->select('orders.*')
+      ->get();
+      Log::info($ordersData);
+      //return $ordersData;
+      return view('/orders',['data' => $ordersData]  );
     }
 }
 

@@ -31,11 +31,18 @@
         <a href='/edit'>
             <button class="btn btn-outline-primary">Edit Profile</button>
         </a>
-        <button class="btn btn-outline-primary">Departments</button>
-        <button class="btn btn-outline-primary">Orders</button>
-        <button class="btn btn-outline-primary">Sellers List</button>
-        <button class="btn btn-outline-primary">Buyers List</button>
-        <button class="btn btn-outline-primary">Permissions</button>
+        <a href="{{url('')}}/edit">
+            <button class="btn btn-outline-primary">Departments</button>
+        </a>
+        <a href="{{url('')}}/edit">
+            <button class="btn btn-outline-primary">Orders</button>
+        </a>
+        <a href="{{url('')}}/edit">
+            <button class="btn btn-outline-primary">Sellers List</button>
+        </a>
+        <a href="{{url('')}}/edit">
+            <button class="btn btn-outline-primary">Buyers List</button>
+        </a>
         </div>
 
         <div class="info">

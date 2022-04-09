@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AuthController;
+use Illuminate\Support\Facades\DB;
 
 use Illuminate\Support\Facades\Log;
 
@@ -42,6 +43,9 @@ Route::get('/seller', function () {
 Route::get('/edit', function () {
     return view('edit');
 });
+
+Route::get('/orders', [UserController::class, 'showOrders']);
+
 
 Route::get('/browsing/{department}', [ProductController::class, 'get_products_by_department']);
 Route::get('/cart', [CartController::class, 'show']);

@@ -30,11 +30,12 @@
 
 
         <div class="options">
-        <a href='/edit'>
+        <a href="{{url('')}}/edit">
             <button class="btn btn-outline-primary">Edit Profile</button>
         </a>
-        <button class="btn btn-outline-primary">Orders</button>
-        <button class="btn btn-outline-primary">Wish List</button>
+        <a href="{{url('')}}/orders">
+            <button class="btn btn-outline-primary">Orders</button>
+        </a>
         </div>
 
         <div class="orders">
@@ -42,9 +43,9 @@
         <table style="width: 100%;">
         <tr>
         <th>Order #</th>
-        <th>Description</th>
-        <th>Date (YYYY/MM/DD)</th>
-        <th>Order Total</th>
+        <th>Order Date</th>
+        <th>Delivery Date</th>
+        <th>Delivery Address</th>
         </tr>
 
         <tr>
