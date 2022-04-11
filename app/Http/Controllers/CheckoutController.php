@@ -45,7 +45,9 @@ class CheckoutController extends Controller
         $total = $subtotal + $tax;
         $totals = [$subtotal, $tax, $total];
         return view('checkout',['message'=>$msg, 'totals'=>$totals, 'items'=>$userItems, 'info'=>$userInfo]);
+
     }
+
 
     public function success(Request $request)
     {
@@ -58,7 +60,6 @@ class CheckoutController extends Controller
 
         $orderId = $request->user()->id.$now;
         $deliveryAddress = $delivery['address'].','.$delivery['province'].','.$delivery['postal_code'];
-        
 
         if ($request->user()) {
             Order::create([
@@ -71,10 +72,10 @@ class CheckoutController extends Controller
                 'billing_address' => "Just check customer_id to find their billing address :^)",
                 'total' => $delivery['total'],
 
-                'payment_card_number' => "",
-                'payment_card_expiry' => "",
-                'payment_card_cvv' => "",
-                'payment_card_name' => "",
+                'payment_card_number' => $request->cardnb,
+                'payment_card_expiry' => $request->expdate,
+                'payment_card_cvv' => $request->cvv,
+                'payment_card_name' => $request->full_name,
             ]);
         }
 

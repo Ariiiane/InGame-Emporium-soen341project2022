@@ -111,7 +111,7 @@
             <div class="card my-4">
               <div class="card-header">Card Information</div>
               <div class="card-body">
-                  <form method="POST" id="delivery-info" action="{{url('/order_confirmation')}}">
+                  <form method="POST" id="payment-info" action="{{url('/order_confirmation')}}">
                   @csrf <!-- {{ csrf_field() }} -->
                       <div class="row">
                         <h6>Select Payment Method</h6>
@@ -124,24 +124,24 @@
                           <span class="checkmark"></span>
                         </label>
                           <div class="col">
-                              <label for="input_first_name">Name On Card</label>
+                              <label for="input_full_name">Name On Card</label>
                               <input type="text" class="form-control" id="input_full_name" name="full_name" value="">
                           </div>
                       </div>
                       </br>
                       <div class="form-group">
-                          <label for="input_email">Card Number</label>
+                          <label for="input_card_number">Card Number</label>
                           <input type="email" class="form-control" id="input_card_number" name="cardnb" value="">
                       </div>
                       </br>
                       <div class="form-group">
-                          <label for="input_address">MM/YYYY</label>
+                          <label for="input_expiration_date">MM/YYYY</label>
                           <input type="text" class="form-control" id="input_expiration_date" name="expdate" value="">
                       </div>
                       </br>
                       <div class="row">
                           <div class="col">
-                              <label for="input_postal_code">CVV</label>
+                              <label for="input_cvv">CVV</label>
                               <input type="text" class="form-control" id="input_cvv" name="cvv" value="">
                           </div>
                       </div>
