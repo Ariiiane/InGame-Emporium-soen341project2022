@@ -38,7 +38,7 @@ table, th,td{
     margin-bottom: 1em;
     position: relative; left: 33em; bottom:10em;
   }
-  .options {
+  .options, .forms {
     height: 8em;
     width: 58em;
     border:0;
@@ -47,13 +47,17 @@ table, th,td{
     position: relative; left: 33em; bottom:8em;
   }
 
-.profile{
+  .forms {
+    height: 60em;
+    position: relative; left: 33em;
+  }
+
+  .profile {
     border-radius: 50%;
     height: 95%;
     width: 95%;
     background-color: black;
-}
-.username{
-   margin-top:10px;
-}
-
+  }
+  .username {
+    margin-top:10px;
+  }

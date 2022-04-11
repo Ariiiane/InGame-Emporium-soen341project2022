@@ -55,6 +55,9 @@ Route::get('/cart', [CartController::class, 'show']);
 Route::post('/cart/{product}', [CartController::class, 'create'])->name('cart.create');
 Route::delete('/cart/{cart}', [CartController::class, 'destroy'])->name('cart.destroy');
 
+//For seller posting to database
+Route::post('/seller', [ProductController::class, 'store']) ->name('product.store');
+
 Route::get('/browsing', [ProductController::class, 'get_products']);
 
 Route::resource('products', ProductController::class);

@@ -35,6 +35,89 @@
         <button class="btn btn-outline-primary">Products List</button>
         </div>
 
+        <div class="forms">
+          <h4>Add Product</h4>
+          <form method="POST" action="{{route('product.store')}}">
+            <div class="form-row">
+              <div class="form-col" style="padding: 10px 1px">
+                  <label for="product_id">Product ID</label>
+                  <div>
+                      <input id="product_id" type="text" name="product_id" class="form-control" required/>
+                  </div>
+              </div>
+
+              <div class="form-col" style="padding: 10px 1px">
+                  <label for="item-name">Item Name</label>
+                  <div>
+                      <input id="name" type="text" name="item-name" class="form-control" required/>
+                  </div>
+              </div>
+
+              <div class="form-col" style="padding: 10px 1px">
+                  <label for="description">Description</label>
+                  <div>
+                      <input id="description" type="text" name="description" class="form-control" required/>
+                  </div>
+              </div>
+              <div class="form-col" style="padding: 10px 1px">
+                  <label for="department">Department</label>
+                  <div>
+                      <input id="department" type="text" name="department" class="form-control" required/>
+                  </div>
+              </div>
+
+              <div class="form-col" style="padding: 10px 1px">
+                  <label for="manufacturer">Manufacturer</label>
+                  <div>
+                      <input id="manufacturer" type="text" name="manufacturer" class="form-control" required/>
+                  </div>
+              </div>
+
+              <div class="form-col" style="padding: 10px 1px">
+                  <label for="price">Price</label>
+                  <div>
+                      <input id="price" type="text" name="price" class="form-control" required/>
+                  </div>
+              </div>
+
+              <div class="form-col" style="padding: 10px 1px">
+                  <label for="unit">Units</label>
+                  <div>
+                      <input id="unit" type="text" name="unit" class="form-control" required/>
+                  </div>
+              </div>
+
+              <div class="form-col" style="padding: 10px 1px">
+                  <label for="format">Format</label>
+                  <div>
+                      <input id="format" type="text" name="format" class="form-control" required/>
+                  </div>
+              </div>
+
+              <div class="form-col" style="padding: 10px 1px">
+                  <label for="inventory">Inventory</label>
+                  <div>
+                      <input id="inventory" type="text" name="inventory" class="form-control" required/>
+                  </div>
+              </div>
+
+              <div class="form-col" style="padding: 10px 1px">
+                  <label for="image_path">Image Link</label>
+                  <div>
+                      <input id="image_path" type="text" name="image_path" class="form-control" required/>
+                  </div>
+              </div>
+
+              <div style="padding: 2px">
+                  <button type="submit" class="btn btn-primary">
+                      Add Product
+                  </button>
+              </div>
+
+            </div>
+          </form>
+        </div>
+
         <div class="inventory">
         <h4>Inventory</h4>
         <table style="width: 100%;">
