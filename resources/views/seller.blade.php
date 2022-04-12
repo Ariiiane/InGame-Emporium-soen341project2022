@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>Seller Profile</title>
 
@@ -38,7 +39,9 @@
         <div class="forms">
           <h4>Add Product</h4>
           <div class="form-content">
-          <form method="POST" action="{{route('product.store')}}">
+          <form action="{{route('product.store')}}" method="POST">
+            @csrf
+
             <div class="form-row">
               <div class="form-col" style="padding: 10px 1px">
                   <label for="product_id">Product ID</label>
@@ -118,7 +121,7 @@
             </div>
           </form>
         </div>
-    </div>
+      </div>
 
         <div class="info">
         <h4>Information</h4>
