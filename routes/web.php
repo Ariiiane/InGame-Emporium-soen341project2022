@@ -7,6 +7,8 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CheckoutController;
+
 
 use Illuminate\Support\Facades\Log;
 
@@ -51,6 +53,11 @@ Route::delete('/cart/{cart}', [CartController::class, 'destroy'])->name('cart.de
 Route::get('/browsing', [ProductController::class, 'get_products']);
 
 Route::resource('products', ProductController::class);
+
+Route::get('/checkout', [CheckoutController::class, 'index']);
+Route::post('/order_confirmation', [CheckoutController::class, 'success']);
+
+
 
 // Chloe for Auth
 //Route::get('user-list', [AuthController::class, 'index'])->name('user.list');
