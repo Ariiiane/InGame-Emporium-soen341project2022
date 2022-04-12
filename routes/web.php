@@ -39,14 +39,21 @@ Route::get('/buyer', function () {
 });
 
 Route::get('/seller', function () {
-    return view('/seller');
+    return view('seller');
 });
 
 Route::get('/edit', function () {
     return view('edit');
 });
 
+/*
+*/
+
+//Hilary for managing profile
+Route::post('edit', [UserController::class, 'editUser'])->name('edit');
 Route::get('/orders', [UserController::class, 'showOrders']);
+Route::get('/sellers_list', [UserController::class, 'showSellers']);
+Route::get('/buyers_list', [UserController::class, 'showBuyers']);
 
 
 Route::get('/browsing/{department}', [ProductController::class, 'get_products_by_department']);
@@ -70,12 +77,6 @@ Route::resource('products', ProductController::class);
 //Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('register.post');
 //Route::get('dashboard', [AuthController::class, 'dashboard']);
 //Route::get('logout', [AuthController::class, 'logout'])->name('logout');
-
-
-//Hilary for managing profile
-Route::get('/buyer', [AuthenticatedSessionController::class,'display']);
-Route::get('/buyer', [RegisteredUserController::class,'display']);
-Route::post('edit', [UserController::class, 'editUser'])->name('edit');
 
 
 Route::get('/checkout', [CheckoutController::class, 'index']);

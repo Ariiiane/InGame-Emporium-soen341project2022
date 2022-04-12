@@ -76,7 +76,7 @@ class UserController extends Controller
     {
         $request->validate([
             'user_id' => 0,
-            'role' => "user",
+            'role' => 'required',
             'first_name' => 'required',
             'last_name' => 'required',
             'email' => 'required|email|unique:users',
@@ -153,7 +153,7 @@ class UserController extends Controller
 
     public function editUser(Request $request)
     {
-        $user = User::where('user_id', Auth::user()->user_id)->first();
+        $user = User::where('user_id', $request->user()->user_id)->first();
 
         if ($request->email) {
             $user->email = $request->email;
@@ -175,32 +175,46 @@ class UserController extends Controller
                 $user->password = Hash::make($request->new_password);
         }
 
-        if ($request->description) {
-            $description = $request->description;
-    }
-
         $user->save();
 
-        if (Auth::user()->role == 'buyer') {
+        //return redirect('/edit')->with('success','Profile updated successfully.');
+
+        if ($request->user()->role == 'buyer') {
             return view('/buyer');
-        } else if (Auth::user()->role == 'seller')  {
+        } else if ($request->user()->role == 'seller')  {
                 return view('/seller');
             }
         else {
                 return view('/admin');
-            }
-            
+            }            
         
     }
 
-    public function showOrders()
+    public function showOrders(Request $request)
     {
-      $ordersData = DB::table('users')->join('orders', 'users.user_id', '=', 'orders.customer_id')
-      ->select('orders.*')
+        if ($request->user()->role == 'buyer') {
+            $ordersData = DB::table('users')->join('orders', 'users.id', '=', 'orders.customer_id')
+      ->where('orders.customer_id', $request->user()->id)
+      ->select('orders.order_id', 'orders.order_date', 'orders.delivery_address', 'orders.shipping_speed', 'orders.total' )
       ->get();
-      Log::info($ordersData);
-      //return $ordersData;
-      return view('/orders',['data' => $ordersData]  );
+        } else {
+            $ordersData = DB::table('users')->join('orders', 'users.id', '=', 'orders.customer_id')
+      ->select('orders.order_id', 'orders.order_date', 'orders.delivery_address', 'orders.shipping_speed', 'orders.total', 'users.first_name', 'users.last_name')
+      ->get();
+        }
+      return view('orders',compact('ordersData'));
+    }
+
+    public function showSellers()
+    {
+        $sellersData = User::where('role', 'seller')->get();
+      return view('sellers_list',compact('sellersData'));
+    }
+
+    public function showBuyers(Request $request)
+    {
+        $buyersData = User::where('role', 'buyer')->get();
+        return view('buyers_list',compact('buyersData'));
     }
 }
 

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -23,6 +22,7 @@
     </head>
     <body>
         {{View::make('header')}}
+        <div class="background-users">
         <div class="identification">
         <img src="../public/images/profilePicture.jpg" alt="Profile Picture" class="profile">
         <p class="username"> <b> {{ Auth::user()->first_name }} {{ Auth::user()->last_name }} </b></p>
@@ -38,41 +38,6 @@
         </a>
         </div>
 
-        <div class="orders">
-        <h4>Recent Orders</h4>
-        <table style="width: 100%;">
-        <tr>
-        <th>Order #</th>
-        <th>Order Date</th>
-        <th>Delivery Date</th>
-        <th>Delivery Address</th>
-        </tr>
-
-        <tr>
-        <td>084040</td>
-        <td>Lorem ipsum dolor sit amet.</td>
-        <td>20XX/XX/XX</td>
-        <td>$XXX.XX</td>
-        </tr>
-
-        <tr>
-        <td>073738</td>
-        <td>Lorem ipsum dolor sit amet.</td>
-        <td>20XX/XX/XX</td>
-        <td>$XXX.XX</td>
-        </tr>
-
-        <tr>
-        <td>059474</td>
-        <td>Lorem ipsum dolor sit amet.</td>
-        <td>20XX/XX/XX</td>
-        <td>$XXX.XX</td>
-        </tr>
-
-        </table>
-        </div>
-
-
         <div class="info">
         <h4>Information</h4>
 
@@ -86,6 +51,7 @@
         <p class="info-txt">{{ Auth::user()->address}} {{ Auth::user()->province }} {{ Auth::user()->postal_code }}</p>
         </div>
 
+        </div>
         </div>
         {{View::make('footer')}}
     </body>

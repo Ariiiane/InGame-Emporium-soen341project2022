@@ -31,12 +31,13 @@
         <a href="{{url('')}}/edit">
             <button class="btn btn-outline-primary">Edit Profile</button>
         </a>
-        <button class="btn btn-outline-primary">Orders</button>
+        <button class="btn btn-outline-primary">Sales</button>
         <button class="btn btn-outline-primary">Products List</button>
         </div>
 
         <div class="forms">
           <h4>Add Product</h4>
+          <div class="form-content">
           <form method="POST" action="{{route('product.store')}}">
             <div class="form-row">
               <div class="form-col" style="padding: 10px 1px">
@@ -117,40 +118,7 @@
             </div>
           </form>
         </div>
-
-        <div class="inventory">
-        <h4>Inventory</h4>
-        <table style="width: 100%;">
-        <tr>
-        <th>Items</th>
-        <th>Description</th>
-        <th>Quantity</th>
-        <th>Sell Price</th>
-        </tr>
-
-        <tr>
-        <td>Item 1</td>
-        <td>Lorem ipsum dolor sit amet.</td>
-        <td>XX</td>
-        <td>$XX.XX</td>
-        </tr>
-
-        <tr>
-        <td>Item 2</td>
-        <td>Lorem ipsum dolor sit amet.</td>
-        <td>XX</td>
-        <td>$XX.XX</td>
-        </tr>
-
-        <tr>
-        <td>Item 3</td>
-        <td>Lorem ipsum dolor sit amet.</td>
-        <td>XX</td>
-        <td>$XX.XX</td>
-        </tr>
-
-        </table>
-        </div>
+    </div>
 
         <div class="info">
         <h4>Information</h4>

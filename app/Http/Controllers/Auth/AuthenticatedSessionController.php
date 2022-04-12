@@ -60,14 +60,5 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/');
-    }
-
-
-    public function display(Request $request)
-    {
-        ##$data = User::where('email',$request->email)->get();
-        $data = User::all();
-        $test = ['name' => $data] ;
-        return view('buyer', $test);
-    }
+    } 
 }

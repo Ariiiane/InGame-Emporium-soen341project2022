@@ -31,7 +31,6 @@
                     <label for="role">Role</label>
                     <select name="role" id="role" required>
                         <option>--</option>
-                        <option value="admin">admin</option>
                         <option value="buyer">buyer</option>
                         <option value="seller">seller</option>
                     </select>

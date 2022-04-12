@@ -28,19 +28,16 @@
         </div>
 
         <div class="options">
-        <a href='/edit'>
+        <a href="{{url('')}}/edit">
             <button class="btn btn-outline-primary">Edit Profile</button>
         </a>
-        <a href="{{url('')}}/edit">
-            <button class="btn btn-outline-primary">Departments</button>
-        </a>
-        <a href="{{url('')}}/edit">
+        <a href="{{url('')}}/orders">
             <button class="btn btn-outline-primary">Orders</button>
         </a>
-        <a href="{{url('')}}/edit">
+        <a href="{{url('')}}/sellers_list">
             <button class="btn btn-outline-primary">Sellers List</button>
         </a>
-        <a href="{{url('')}}/edit">
+        <a href="{{url('')}}/buyers_list">
             <button class="btn btn-outline-primary">Buyers List</button>
         </a>
         </div>

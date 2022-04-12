@@ -27,50 +27,25 @@
             <div class="container">
                 <h1>Orders</h1>
             </div>
-            @if(sizeof($ordersData) == 0)
+            @if(sizeof($sellersData) == 0)
                 <p>Nothing to show here</p>
             @else
-                @if(Auth::user()->role == 'buyer')
-                    <table style="width: 100%;">
-                        <tr>
-                            <th>Order Number</th>
-                            <th>Order Date</th>
-                            <th>Delivery Address</th>
-                            <th>Shipping Speed</th>
-                            <th>Order Total</th>
-                        </tr>
-                            @foreach($ordersData as $item)
-                        <tr>
-                            <td>{{ $item->order_id }}</td>
-                            <td>{{ substr($item->order_date,0,4) }}/{{ substr($item->order_date,4,2) }}/{{ substr($item->order_date,6,2) }}</td>
-                            <td>{{ $item->delivery_address }}</td>
-                            <td>{{ $item->shipping_speed }}</td>
-                            <td>${{ $item->total }}</td>
-                        </tr>
-                            @endforeach
-                    </table>
-                @else
                 <table style="width: 100%;">
                  <tr>
-                    <th>Order Number</th>
-                    <th>Client Name</th>
-                    <th>Order Date</th>
-                    <th>Delivery Address</th>
-                    <th>Shipping Speed</th>
-                    <th>Order Total</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Address</th>
                 </tr>
-                    @foreach($ordersData as $item)
+                    @foreach($sellersData as $item)
                 <tr>
-                    <td>{{ $item->order_id }}</td>
-                    <td>{{ $item->first_name }} {{ $item->last_name }}</td>
-                    <td>{{ substr($item->order_date,0,4) }}/{{ substr($item->order_date,4,2) }}/{{ substr($item->order_date,6,2) }}</td>
-                    <td>{{ $item->delivery_address }}</td>
-                    <td>{{ $item->shipping_speed }}</td>
-                    <td>${{ $item->total }}</td>
+                    <td>{{ $item->first_name }}</td>
+                    <td> {{ $item->last_name }}</td>
+                    <td>{{ $item->email }}</td>
+                    <td>{{ $item->address }}, {{ $item->province }}, {{ $item->postal_code }} </td>
                 </tr>
                     @endforeach
                 </table>
-                @endif
             @endif
     </div>
 

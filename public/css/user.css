@@ -7,6 +7,13 @@ table, th,td{
     border-collapse: collapse;
     text-align: center;
 }
+
+.background-users, .background-orders {
+  
+  display: flex;
+  flex-direction: row;
+  min-height: calc(100vh - 55.98px - 209.91px);
+}
 .btn-outline-primary{
     background-color:  #05497B;
     margin: 20px 20px 20px 20px;
