@@ -28,14 +28,11 @@
         </div>
     </div>
     
-</div>
-</div>
-    <div class="col-4">
-        <div style="background:#F1F6FB;border:#D6DFD8 2px solid;vertical-align:middle;text-align:center;height:1000px;padding:78px 68px 78px 68px;color:#879F9F">
-            <b>Advertise Here</b>
-                <br/>Size 300X250<br/>
-            <span style="font-size:small"> Ads go here</span>
-        </div>
     </div>
+    </div>
+    <div class="col-4">
+        <a href = "{{ url('')}}/{{ $ad->ad_link }} "><img src="{{ url('')}}/{{ $ad->ad_image_path }}"></a>
+    </div>
+
 </div>
 @endsection
