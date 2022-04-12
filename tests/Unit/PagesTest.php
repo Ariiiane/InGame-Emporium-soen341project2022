@@ -8,6 +8,7 @@ use Tests\TestCase;
 
 class PagesTest extends TestCase
 {
+    use RefreshDatabase;
     /**
      * Tests landing page.
      *
@@ -16,17 +17,6 @@ class PagesTest extends TestCase
     public function test_landing_page_request()
     {
         $response = $this->get('/');
-        $response->assertStatus(200);
-    }
-
-    /**
-     * Tests browsing pages THIS IS SUPPOSED TO FAIL ON PURPOSE.
-     * 
-     * @return void
-     */
-    public function test_browsing_page_request()
-    {
-        $response = $this->get('/browsing/');
         $response->assertStatus(200);
     }
 
@@ -71,28 +61,6 @@ class PagesTest extends TestCase
     public function test_cart_request()
     {
         $response = $this->get('/cart');
-        $response->assertStatus(200);
-    }
-
-    /**
-     * Tests signup page.
-     *
-     * @return void
-     */
-    public function test_signup_request()
-    {
-        $response = $this->get('/register');
-        $response->assertStatus(200);
-    }
-
-    /**
-     * Tests login page.
-     *
-     * @return void
-     */
-    public function test_login_request()
-    {
-        $response = $this->get('/login');
         $response->assertStatus(200);
     }
 }

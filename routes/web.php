@@ -9,6 +9,8 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\DB;
 
+use App\Http\Controllers\CheckoutController;
+
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\CheckoutController;
 
@@ -68,6 +70,11 @@ Route::post('/seller', [ProductController::class, 'store']) ->name('product.stor
 Route::get('/browsing', [ProductController::class, 'get_products']);
 
 Route::resource('products', ProductController::class);
+
+Route::get('/checkout', [CheckoutController::class, 'index']);
+Route::post('/order_confirmation', [CheckoutController::class, 'success']);
+
+
 
 // Chloe for Auth
 //Route::get('user-list', [AuthController::class, 'index'])->name('user.list');

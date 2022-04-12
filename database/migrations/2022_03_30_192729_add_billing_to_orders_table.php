@@ -15,13 +15,14 @@ class AddBillingToOrdersTable extends Migration
     {
         Schema::table('orders', function (Blueprint $table) {
             //
-            $table->string('billing_address', 250);
-            $table->double('total', 8, 2);
+   
+            $table->string('billing_address', 250)->default("");
+            $table->double('total', 8, 2)->default(0);
 
-            $table->string('payment_card_number', 25);
-            $table->string('payment_card_expiry', 10);
-            $table->string('payment_card_cvv', 5);
-            $table->string('payment_card_name', 50);
+            $table->string('payment_card_number', 25)->default("");
+            $table->string('payment_card_expiry', 10)->default("");
+            $table->string('payment_card_cvv', 5)->default("");
+            $table->string('payment_card_name', 50)->default("");
 
         });
     }
