@@ -72,10 +72,10 @@ class CheckoutController extends Controller
                 'billing_address' => "Just check customer_id to find their billing address :^)",
                 'total' => $delivery['total'],
 
-                'payment_card_number' => $request->cardnb,
-                'payment_card_expiry' => $request->expdate,
-                'payment_card_cvv' => $request->cvv,
-                'payment_card_name' => $request->full_name,
+                'payment_card_number' => $request->card_number,
+                'payment_card_expiry' => $request->card_expiry,
+                'payment_card_cvv' => $request->card_cvv,
+                'payment_card_name' => $request->card_full_name,
             ]);
         }
 
