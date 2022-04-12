@@ -46,6 +46,7 @@ Route::get('/edit', function () {
 });
 
 Route::get('/browsing/{department}', [ProductController::class, 'get_products_by_department']);
+Route::get('/browsing/item/{product_id}', [ProductController::class, 'get_products_by_id']);
 Route::get('/cart', [CartController::class, 'show']);
 Route::post('/cart/{product}', [CartController::class, 'create'])->name('cart.create');
 Route::delete('/cart/{cart}', [CartController::class, 'destroy'])->name('cart.destroy');
