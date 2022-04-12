@@ -46,13 +46,6 @@ class ProductController extends Controller
         return view('products.image',['products'=>$products, 'department'=>$department]);
     }
 
-    public function get_products_by_id(String $id) 
-    {
-        $product = Product::where('product_id', $id)->first();
-
-        return view('products.item',['product'=>$product]);
-    }
-
     /**
      * Show the form for creating a new resource.
      *
