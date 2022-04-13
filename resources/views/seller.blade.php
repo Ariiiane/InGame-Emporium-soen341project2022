@@ -34,6 +34,7 @@
 
         <div class="options">
         <button class="btn btn-outline-primary">Edit Profile</button>
+        <a href = "{{ url('seller/UploadAds')}} "><button class="btn btn-outline-primary">Advertisement</button></a>
         <button class="btn btn-outline-primary">Orders</button>
         <button class="btn btn-outline-primary">Products List</button>
         </div>
@@ -47,7 +48,7 @@
         <th>Quantity</th>
         <th>Sell Price</th>
         </tr>
-
+        
         <tr>
         <td>Item 1</td>
         <td>Lorem ipsum dolor sit amet.</td>
