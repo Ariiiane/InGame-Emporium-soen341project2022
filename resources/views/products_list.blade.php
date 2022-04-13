@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Sellers List</title>
+        <title>Products List</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -24,29 +24,100 @@
         {{View::make('header')}}
 
         <div class="background-users">
-            <div class="container">
-                <h1>Sellers List</h1>
-            </div>
-            @if(sizeof($sellersData) == 0)
+        <div class="container">
+                <h1>Products</h1>
+
                 <p>Nothing to show here</p>
-            @else
-                <table style="width: 100%;">
-                 <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Email</th>
-                    <th>Address</th>
-                </tr>
-                    @foreach($sellersData as $item)
-                <tr>
-                    <td>{{ $item->first_name }}</td>
-                    <td> {{ $item->last_name }}</td>
-                    <td>{{ $item->email }}</td>
-                    <td>{{ $item->address }}, {{ $item->province }}, {{ $item->postal_code }} </td>
-                </tr>
-                    @endforeach
-                </table>
-            @endif
+
+                <p>You can add a new product by filling and submitting the form below</p>
+
+        </div>
+
+    <div class="container"><h4>Add Product</h4></div>
+    <div class="form-content">
+
+    <form method="POST" action="{{route('product.store')}}">
+            @csrf
+
+            <div class="form-row">
+              <div class="form-col" style="padding: 10px 1px">
+                  <label for="product_id">Product ID</label>
+                  <div>
+                      <input id="product_id" type="text" name="product_id" class="form-control" required/>
+                  </div>
+              </div>
+
+              <div class="form-col" style="padding: 10px 1px">
+                  <label for="item-name">Item Name</label>
+                  <div>
+                      <input id="name" type="text" name="item-name" class="form-control" required/>
+                  </div>
+              </div>
+
+              <div class="form-col" style="padding: 10px 1px">
+                  <label for="description">Description</label>
+                  <div>
+                      <input id="description" type="text" name="description" class="form-control" required/>
+                  </div>
+              </div>
+              <div class="form-col" style="padding: 10px 1px">
+                  <label for="department">Department</label>
+                  <div>
+                      <input id="department" type="text" name="department" class="form-control" required/>
+                  </div>
+              </div>
+
+              <div class="form-col" style="padding: 10px 1px">
+                  <label for="manufacturer">Manufacturer</label>
+                  <div>
+                      <input id="manufacturer" type="text" name="manufacturer" class="form-control" required/>
+                  </div>
+              </div>
+
+              <div class="form-col" style="padding: 10px 1px">
+                  <label for="price">Price</label>
+                  <div>
+                      <input id="price" type="text" name="price" class="form-control" required/>
+                  </div>
+              </div>
+
+              <div class="form-col" style="padding: 10px 1px">
+                  <label for="unit">Units</label>
+                  <div>
+                      <input id="unit" type="text" name="unit" class="form-control" required/>
+                  </div>
+              </div>
+
+              <div class="form-col" style="padding: 10px 1px">
+                  <label for="format">Format</label>
+                  <div>
+                      <input id="format" type="text" name="format" class="form-control" required/>
+                  </div>
+              </div>
+
+              <div class="form-col" style="padding: 10px 1px">
+                  <label for="inventory">Inventory</label>
+                  <div>
+                      <input id="inventory" type="text" name="inventory" class="form-control" required/>
+                  </div>
+              </div>
+
+              <div class="form-col" style="padding: 10px 1px">
+                  <label for="image_path">Image Link</label>
+                  <div>
+                      <input id="image_path" type="text" name="image_path" class="form-control" required/>
+                  </div>
+              </div>
+
+              <div style="padding: 2px">
+                  <button type="submit" class="btn btn-primary">
+                      Add Product
+                  </button>
+              </div>
+
+            </div>
+          </form>
+        </div>
     </div>
 
         {{View::make('footer')}}

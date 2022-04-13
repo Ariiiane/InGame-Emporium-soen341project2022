@@ -177,8 +177,10 @@ class UserController extends Controller
 
         $user->save();
 
-        //return redirect('/edit')->with('success','Profile updated successfully.');
+        return view('/edit_confirmation');
 
+        //return redirect('/edit')->with('success','Profile updated successfully.');
+        /*
         if ($request->user()->role == 'buyer') {
             return view('/buyer');
         } else if ($request->user()->role == 'seller')  {
@@ -186,24 +188,35 @@ class UserController extends Controller
             }
         else {
                 return view('/admin');
-            }            
+            }    
+        */        
         
     }
 
     public function showOrders(Request $request)
     {
         if ($request->user()->role == 'buyer') {
-            $ordersData = DB::table('users')->join('orders', 'users.id', '=', 'orders.customer_id')
-      ->where('orders.customer_id', $request->user()->id)
-      ->select('orders.order_id', 'orders.order_date', 'orders.delivery_address', 'orders.shipping_speed', 'orders.total' )
-      ->get();
+            $ordersData = DB::table('orders')
+            ->join('users', 'users.id', '=', 'orders.customer_id')
+            ->where('orders.customer_id', $request->user()->id)
+            ->select('orders.order_id', 'orders.order_date', 'orders.delivery_address', 'orders.shipping_speed', 'orders.total', 'orders.payment_card_number')
+            ->get();
+
         } else {
             $ordersData = DB::table('users')->join('orders', 'users.id', '=', 'orders.customer_id')
       ->select('orders.order_id', 'orders.order_date', 'orders.delivery_address', 'orders.shipping_speed', 'orders.total', 'users.first_name', 'users.last_name')
       ->get();
         }
-      return view('orders',compact('ordersData'));
-    }
+
+        $salesData = DB::table('sales')
+            ->join('products', 'sales.product_id', '=', 'products.product_id')
+            ->select('sales.order_id', 'sales.quantity', 'products.name', 'products.price'  )
+            ->get();
+
+      return view('orders')
+      ->with(compact('ordersData'))
+      ->with(compact('salesData'));
+    } 
 
     public function showSellers()
     {
@@ -211,7 +224,7 @@ class UserController extends Controller
       return view('sellers_list',compact('sellersData'));
     }
 
-    public function showBuyers(Request $request)
+    public function showBuyers()
     {
         $buyersData = User::where('role', 'buyer')->get();
         return view('buyers_list',compact('buyersData'));

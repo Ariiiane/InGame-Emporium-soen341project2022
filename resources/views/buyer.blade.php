@@ -28,7 +28,6 @@
         <p class="username"> <b> {{ Auth::user()->first_name }} {{ Auth::user()->last_name }} </b></p>
         </div>
 
-
         <div class="options">
         <a href="{{url('')}}/edit">
             <button class="btn btn-outline-primary">Edit Profile</button>

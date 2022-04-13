@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Seller Profile</title>
+        <title>Orders</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -23,37 +23,50 @@
     <body>
         {{View::make('header')}}
 
-        <div class="background-orders">
-            <div class="container">
+        <div class="background-users">
+        <div class="container">
                 <h1>Orders</h1>
             </div>
             @if(sizeof($ordersData) == 0)
                 <p>Nothing to show here</p>
             @else
                 @if(Auth::user()->role == 'buyer')
-                    <table style="width: 100%;">
+                    <table>
                         <tr>
                             <th>Order Number</th>
+                            <th>Content</th>
                             <th>Order Date</th>
                             <th>Delivery Address</th>
                             <th>Shipping Speed</th>
                             <th>Order Total</th>
+                            <th>Payment Method</th>
                         </tr>
                             @foreach($ordersData as $item)
                         <tr>
                             <td>{{ $item->order_id }}</td>
+                            <td>
+                                <ul>
+                                @foreach($salesData as $data)
+                                    @if( $data->order_id == $item->order_id )
+                                        <li> {{ $data->quantity }} * {{ $data->name }} @ ${{ $data->price }} </li>
+                                    @endif
+                                @endforeach
+                                </ul>
+                            </td>
                             <td>{{ substr($item->order_date,0,4) }}/{{ substr($item->order_date,4,2) }}/{{ substr($item->order_date,6,2) }}</td>
                             <td>{{ $item->delivery_address }}</td>
                             <td>{{ $item->shipping_speed }}</td>
                             <td>${{ $item->total }}</td>
+                            <td> Card Ending in {{ substr($item->payment_card_number,12,4) }}</td>
                         </tr>
                             @endforeach
                     </table>
                 @else
-                <table style="width: 100%;">
+                <table>
                  <tr>
                     <th>Order Number</th>
                     <th>Client Name</th>
+                    <th>Content</th>
                     <th>Order Date</th>
                     <th>Delivery Address</th>
                     <th>Shipping Speed</th>
@@ -63,6 +76,15 @@
                 <tr>
                     <td>{{ $item->order_id }}</td>
                     <td>{{ $item->first_name }} {{ $item->last_name }}</td>
+                    <td>
+                                <ul>
+                                @foreach($salesData as $data)
+                                    @if( $data->order_id == $item->order_id )
+                                        <li> {{ $data->quantity }} * {{ $data->name }} @ ${{ $data->price }} </li>
+                                    @endif
+                                @endforeach
+                                </ul>
+                            </td>
                     <td>{{ substr($item->order_date,0,4) }}/{{ substr($item->order_date,4,2) }}/{{ substr($item->order_date,6,2) }}</td>
                     <td>{{ $item->delivery_address }}</td>
                     <td>{{ $item->shipping_speed }}</td>

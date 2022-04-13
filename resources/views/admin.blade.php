@@ -22,39 +22,40 @@
     </head>
     <body>
         {{View::make('header')}}
-        <div class="identification">
-        <img src="../public/images/profilePicture.jpg" alt="Profile Picture" class="profile">
-        <p class="username">{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</p>
-        </div>
+        <div class="background-users">
+            <div class="identification">
+            <img src="../public/images/profilePicture.jpg" alt="Profile Picture" class="profile">
+            <p class="username">{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</p>
+            </div>
 
-        <div class="options">
-        <a href="{{url('')}}/edit">
-            <button class="btn btn-outline-primary">Edit Profile</button>
-        </a>
-        <a href="{{url('')}}/orders">
-            <button class="btn btn-outline-primary">Orders</button>
-        </a>
-        <a href="{{url('')}}/sellers_list">
-            <button class="btn btn-outline-primary">Sellers List</button>
-        </a>
-        <a href="{{url('')}}/buyers_list">
-            <button class="btn btn-outline-primary">Buyers List</button>
-        </a>
-        </div>
+            <div class="options">
+            <a href="{{url('')}}/edit">
+                <button class="btn btn-outline-primary">Edit Profile</button>
+            </a>
+            <a href="{{url('')}}/orders">
+                <button class="btn btn-outline-primary">Orders</button>
+            </a>
+            <a href="{{url('')}}/sellers_list">
+                <button class="btn btn-outline-primary">Sellers List</button>
+            </a>
+            <a href="{{url('')}}/buyers_list">
+                <button class="btn btn-outline-primary">Buyers List</button>
+            </a>
+            </div>
 
-        <div class="info">
-        <h4>Information</h4>
+            <div class="info">
+            <h4>Information</h4>
 
-        <div>
-        <h5>Email Address</h5>
-        <p class="info-txt">{{ Auth::user()->email }}</p>
-        </div>
+            <div>
+            <h5>Email Address</h5>
+            <p class="info-txt">{{ Auth::user()->email }}</p>
+            </div>
 
-        <div>
-        <h5>Address</h5>
-        <p class="info-txt">{{ Auth::user()->address}} {{ Auth::user()->province }} {{ Auth::user()->postal_code }}</p>
-        </div>
-
+            <div>
+            <h5>Address</h5>
+            <p class="info-txt">{{ Auth::user()->address}} {{ Auth::user()->province }} {{ Auth::user()->postal_code }}</p>
+            </div>
+            </div>
         </div>
         {{View::make('footer')}}
     </body>

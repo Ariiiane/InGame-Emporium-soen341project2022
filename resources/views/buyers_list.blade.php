@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Seller Profile</title>
+        <title>Buyers List</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -23,9 +23,9 @@
     <body>
         {{View::make('header')}}
 
-        <div class="background-orders">
+        <div class="background-users">
             <div class="container">
-                <h1>Orders</h1>
+                <h1>Buyers List</h1>
             </div>
             @if(sizeof($buyersData) == 0)
                 <p>Nothing to show here</p>

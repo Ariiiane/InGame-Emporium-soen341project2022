@@ -46,8 +46,14 @@ Route::get('/edit', function () {
     return view('edit');
 });
 
-/*
-*/
+Route::get('/sales', function () {
+    return view('sales');
+});
+
+Route::get('/products_list', function () {
+    return view('products_list');
+});
+
 
 //Hilary for managing profile
 Route::post('edit', [UserController::class, 'editUser'])->name('edit');

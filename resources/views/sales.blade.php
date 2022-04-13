@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Sellers List</title>
+        <title>Sales</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -25,28 +25,13 @@
 
         <div class="background-users">
             <div class="container">
-                <h1>Sellers List</h1>
-            </div>
-            @if(sizeof($sellersData) == 0)
+                <h1>Sales</h1>
+
                 <p>Nothing to show here</p>
-            @else
-                <table style="width: 100%;">
-                 <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Email</th>
-                    <th>Address</th>
-                </tr>
-                    @foreach($sellersData as $item)
-                <tr>
-                    <td>{{ $item->first_name }}</td>
-                    <td> {{ $item->last_name }}</td>
-                    <td>{{ $item->email }}</td>
-                    <td>{{ $item->address }}, {{ $item->province }}, {{ $item->postal_code }} </td>
-                </tr>
-                    @endforeach
-                </table>
-            @endif
+                
+            </div>
+
+           
     </div>
 
         {{View::make('footer')}}
