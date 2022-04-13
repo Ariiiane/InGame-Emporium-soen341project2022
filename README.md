@@ -40,6 +40,5 @@ In this project, our team members are cooperating to design an online shopping w
   - HTML
   - CSS
   - SQL
-  - Javascript
 - Technologies
   - Laravel
