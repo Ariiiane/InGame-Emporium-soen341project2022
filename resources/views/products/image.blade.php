@@ -29,8 +29,8 @@
     @endforeach
 </div>
 </div>
-    <div class="col-4"><img src="{{ url('')}}/{{ $ad->ad_image_path }}"></a>
-        <a href = "{{ url('')}}/{{ $ad->ad_link }} ">
+    <div class="col-4">
+        <a href = "{{ url('')}}/{{ $ad->ad_link }} "><img src="{{ url('')}}/{{ $ad->ad_image_path }}"></a>
     </div>
 </div>
 @endsection
