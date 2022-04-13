@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CheckoutController;
-use App\Http\Controllers\FileUploadController;
+//use App\Http\Controllers\FileUploadController;
 
 use Illuminate\Support\Facades\Log;
 
@@ -37,13 +37,10 @@ Route::get('/buyer', function () {
     return view('buyer');
 });
 
-Route::get('/seller', function () {
-    return view('/seller');
-});
+// Route::get('/seller', function () {
+//     return view('/seller');
 
-Route::get('/edit', function () {
-    return view('edit');
-});
+// });
 
 
 Route::post('/seller/uploaded_file', [FileUploadController::class, 'fileUploadPost']);
