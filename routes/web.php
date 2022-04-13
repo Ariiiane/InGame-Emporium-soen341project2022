@@ -39,7 +39,10 @@ Route::get('/buyer', function () {
 
 Route::get('/seller', function () {
     return view('/seller');
+});
 
+Route::get('/edit', function () {
+    return view('edit');
 });
 
 
