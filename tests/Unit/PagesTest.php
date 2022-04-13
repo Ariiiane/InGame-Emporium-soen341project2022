@@ -6,6 +6,8 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Tests\TestCase;
 
+use App\Models\Ad;
+
 class PagesTest extends TestCase
 {
     use RefreshDatabase;
@@ -27,6 +29,7 @@ class PagesTest extends TestCase
      */
     public function test_browsing_all()
     {
+        Ad::factory()->create();
         $response = $this->get('/browsing/All');
         $response->assertStatus(200);
     }
@@ -38,6 +41,7 @@ class PagesTest extends TestCase
      */
     public function test_browsing_tetris()
     {
+        Ad::factory()->create();
         $response = $this->get('/browsing/Tetris');
         $response->assertStatus(200);
     }
@@ -49,6 +53,7 @@ class PagesTest extends TestCase
      */
     public function test_browsing_minecraft()
     {
+        Ad::factory()->create();
         $response = $this->get('/browsing/Minecraft');
         $response->assertStatus(200);
     }
