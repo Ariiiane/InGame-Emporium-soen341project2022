@@ -44,6 +44,7 @@ Route::get('/seller', function () {
 Route::get('/edit', function () {
     return view('edit');
 });
+
 Route::post('/seller/uploaded_file', [FileUploadController::class, 'fileUploadPost']);
 Route::get('/seller/UploadAds', [ProductController::class, 'get_products_for_dropwdown']);
 Route::get('/browsing/{department}', [ProductController::class, 'get_products_by_department']);
