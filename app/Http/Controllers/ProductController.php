@@ -32,9 +32,9 @@ class ProductController extends Controller
     /**
      * Displays products belonging to a given department.
      */
-    public function get_products_by_department(String $department) 
+    public function get_products_by_department(String $department)
     {
-        if ($department == "All") 
+        if ($department == "All")
         {
             $products = Product::inRandomOrder()->get();
         }
@@ -46,7 +46,7 @@ class ProductController extends Controller
         return view('products.image',['products'=>$products, 'department'=>$department]);
     }
 
-    public function get_products_by_id(String $id) 
+    public function get_products_by_id(String $id)
     {
         $product = Product::where('product_id', $id)->first();
 
@@ -86,9 +86,21 @@ class ProductController extends Controller
             'image_path' => 'required'
         ]);
 
-        Product::create($request->all());
+        Product::create([
+            'id' => rand(0,99),
+            'product_id' => $request->product_id,
+            'name' => $request->name,
+            'description' => $request->description,
+            'department' => $request->department,
+            'manufacturer' => $request->manufacturer,
+            'price' => $request->price,
+            'unit' => $request->unit,
+            'format' => $request->format,
+            'inventory' => $request->inventory,
+            'image_path' => $request->image_path,
+        ]);
 
-        return redirect()->route('products.index')
+        return redirect()->route('seller')
             ->with('success','Product created successfully.');
     }
 
