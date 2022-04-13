@@ -8,14 +8,14 @@
                     <form action = "{{ url('') }}/seller/uploaded_file" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <label for="product">What product is associated with your Advertisement:</label>
-                        <select name="product" id="product">
+                        <select name="product_id">
                             @foreach ($products as $product)
                                 <option value="{{ $product->product_id }}">{{ $product->name }}</option>
                             @endforeach
                         </select>
                         <div class="form-group">
                             </br><label for="AdImage">Upload Advertisement image</label> </br>
-                            </br><input type="file" class="form-control-file" id="exampleFormControlFile1" name = "AdImage">     
+                            </br><input type="file" class="form-control-file" name = "AdImage">     
                         </div>
                         </br><input type="submit" name ="Submit" class="btn btn-primary"></br>  
                     </form>
