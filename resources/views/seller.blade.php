@@ -37,6 +37,12 @@
         <a href="{{url('')}}/sales">
             <button class="btn btn-outline-primary">Sales</button>
         </a>
+        
+        <a href = "{{ url('seller/UploadAds')}} ">
+        <button class="btn btn-outline-primary">Advertisement</button>
+        </a>
+        
+        
 
         <a href="{{url('')}}/products_list">
             <button class="btn btn-outline-primary">Products List</button>

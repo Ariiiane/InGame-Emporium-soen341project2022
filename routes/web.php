@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\FileUploadController;
 
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\CheckoutController;
@@ -54,14 +56,15 @@ Route::get('/products_list', function () {
     return view('products_list');
 });
 
-
 //Hilary for managing profile
 Route::post('edit', [UserController::class, 'editUser'])->name('edit');
 Route::get('/orders', [UserController::class, 'showOrders']);
 Route::get('/sellers_list', [UserController::class, 'showSellers']);
 Route::get('/buyers_list', [UserController::class, 'showBuyers']);
 
-
+Route::post('/seller/uploaded_file', [FileUploadController::class, 'fileUploadPost']);
+Route::get('/seller/UploadAds', [ProductController::class, 'get_products_for_dropwdown']);
+  
 Route::get('/browsing/{department}', [ProductController::class, 'get_products_by_department']);
 Route::get('/browsing/item/{product_id}', [ProductController::class, 'get_products_by_id']);
 Route::get('/cart', [CartController::class, 'show']);

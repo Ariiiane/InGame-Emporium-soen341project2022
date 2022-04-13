@@ -23,4 +23,5 @@ class Order extends Model
         'payment_card_cvv',
         'payment_card_name',
     ];
+    public $timestamp=false;
 }

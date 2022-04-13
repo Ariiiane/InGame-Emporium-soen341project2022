@@ -66,9 +66,43 @@
                     </div>
                 </div>
                 <input type="hidden" id="total" name="total" value="{{$totals[2]}}">
-            </form>
+            <hr>
+        <h3>Payment</h3>
+                    <div class="row">
+                    <h6>Select Payment Method</h6>
+                    <label class="container">Credit
+                        <input type="radio" checked="checked" name="radio">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">Debit
+                        <input type="radio" name="radio">
+                        <span class="checkmark"></span>
+                    </label>
+                        <div class="col">
+                            <label for="input_full_name">Name On Card</label>
+                            <input type="text" class="form-control" id="input_full_name" name="card_full_name" value="">
+                        </div>
+                    </div>
+                    </br>
+                    <div class="form-group">
+                        <label for="input_card_number">Card Number</label>
+                        <input type="text" class="form-control" id="input_card_number" name="card_number" value="">
+                    </div>
+                    </br>
+                    <div class="form-group">
+                        <label for="input_expiration_date">MM/YYYY</label>
+                        <input type="text" class="form-control" id="input_expiration_date" name="card_expiry" value="">
+                    </div>
+                    </br>
+                    <div class="row">
+                        <div class="col">
+                            <label for="input_cvv">CVV</label>
+                            <input type="text" class="form-control" id="input_cvv" name="card_cvv" value="">
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
-      </div>
     </div>
 
     <div class="col-6 text-center">
@@ -105,6 +139,7 @@
                 </div>
             </div>
         </div>
+
 
         <!-- TODO Post the form info to the payments page, where all the info will be saved in DB-->
         <button type="submit" form="delivery-info" class="btn btn-primary" {{$message[1]}}>Confirm order</button></br>
