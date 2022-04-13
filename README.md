@@ -1,5 +1,5 @@
 # SOEN 341 - In Game Emporium
-
+[![Actions Status](https://github.com/Ariiiane/InGame-Emporium-soen341project2022/workflows/Laravel/badge.svg)](https://github.com/Ariiiane/InGame-Emporium-soen341project2022/actions)
 
 ## Objective 🎯
 Develop an e-commerce application for users to easily have access to various available options of their favorite items on the web.
