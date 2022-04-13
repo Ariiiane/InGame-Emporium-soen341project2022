@@ -12,7 +12,6 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\FileUploadController;
 
 use Illuminate\Support\Facades\Log;
-use App\Http\Controllers\CheckoutController;
 
 
 
