@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CheckoutController;
-
+use App\Http\Controllers\FileUploadController;
 
 use Illuminate\Support\Facades\Log;
 
@@ -45,6 +45,8 @@ Route::get('/edit', function () {
     return view('edit');
 });
 
+Route::post('/seller/uploaded_file', [FileUploadController::class, 'fileUploadPost']);
+Route::get('/seller/UploadAds', [ProductController::class, 'get_products_for_dropwdown']);
 Route::get('/browsing/{department}', [ProductController::class, 'get_products_by_department']);
 Route::get('/browsing/item/{product_id}', [ProductController::class, 'get_products_by_id']);
 Route::get('/cart', [CartController::class, 'show']);
