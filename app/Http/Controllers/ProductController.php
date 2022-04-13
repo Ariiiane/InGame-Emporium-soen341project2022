@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use DB;
 use App\Models\Product;
+use App\Models\Ad;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -34,6 +35,7 @@ class ProductController extends Controller
      */
     public function get_products_by_department(String $department) 
     {
+        $Ad = Ad::inRandomOrder()->first();
         if ($department == "All") 
         {
             $products = Product::inRandomOrder()->get();
@@ -43,14 +45,24 @@ class ProductController extends Controller
             $products = Product::where('department', $department)->get();
         }
 
-        return view('products.image',['products'=>$products, 'department'=>$department]);
+        return view('products.image',['products'=>$products, 'department'=>$department, 'ad'=>$Ad]);
+
     }
 
     public function get_products_by_id(String $id) 
     {
+        $Ad = Ad::inRandomOrder()->first();
+
         $product = Product::where('product_id', $id)->first();
 
-        return view('products.item',['product'=>$product]);
+        return view('products.item',['product'=>$product, 'ad'=>$Ad]);
+    }
+
+    public function get_products_for_dropwdown() 
+    {
+        $products = Product::all();
+
+        return view('UploadAds',['products'=>$products]);
     }
 
     /**
