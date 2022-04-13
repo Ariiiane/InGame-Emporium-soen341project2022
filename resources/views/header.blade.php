@@ -25,7 +25,11 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{url('')}}/cart">Cart</a>
+                    @auth
+                        <a class="nav-link" href="{{url('')}}/cart">Cart</a>
+                    @else
+                        <a class="nav-link" href="<?php echo e(route('login')); ?>">Cart</a>
+                    @endauth
                 </li>
             </ul>
           </li>
