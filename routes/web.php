@@ -37,10 +37,12 @@ Route::get('/buyer', function () {
     return view('buyer');
 });
 
-// Route::get('/seller', function () {
-//     return view('/seller');
+Route::get('/seller', function () {
+    return view('/seller');
 
-// });
+});
+
+
 
 
 Route::post('/seller/uploaded_file', [FileUploadController::class, 'fileUploadPost']);
