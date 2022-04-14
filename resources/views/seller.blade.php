@@ -42,8 +42,6 @@
         <button class="btn btn-outline-primary">Advertisement</button>
         </a>
         
-        
-
         <a href="{{url('')}}/products_list">
             <button class="btn btn-outline-primary">Products List</button>
         </a>
