@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Admin Profile</title>
+        <title>Products List</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -22,41 +22,104 @@
     </head>
     <body>
         {{View::make('header')}}
+
         <div class="background-users">
-            <div class="identification">
-            <img src="../public/images/profilePicture.jpg" alt="Profile Picture" class="profile">
-            <p class="username">{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</p>
-            </div>
+        <div class="container">
+                <h1>Products</h1>
 
-            <div class="options">
-            <a href="{{url('')}}/edit">
-                <button class="btn btn-outline-primary">Edit Profile</button>
-            </a>
-            <a href="{{url('')}}/orders">
-                <button class="btn btn-outline-primary">Orders</button>
-            </a>
-            <a href="{{url('')}}/sellers_list">
-                <button class="btn btn-outline-primary">Sellers List</button>
-            </a>
-            <a href="{{url('')}}/buyers_list">
-                <button class="btn btn-outline-primary">Buyers List</button>
-            </a>
-            </div>
+                <p>Nothing to show here</p>
 
-            <div class="info">
-            <h4>Information</h4>
+                <p>You can add a new product by filling and submitting the form below</p>
 
-            <div>
-            <h5>Email Address</h5>
-            <p class="info-txt">{{ Auth::user()->email }}</p>
-            </div>
-
-            <div>
-            <h5>Address</h5>
-            <p class="info-txt">{{ Auth::user()->address}} {{ Auth::user()->province }} {{ Auth::user()->postal_code }}</p>
-            </div>
-            </div>
         </div>
+
+    <div class="container"><h4>Add Product</h4></div>
+    <div class="form-content">
+
+    <form method="POST" action="{{route('product.store')}}">
+            @csrf
+
+            <div class="form-row">
+              <div class="form-col" style="padding: 10px 1px">
+                  <label for="product_id">Product ID</label>
+                  <div>
+                      <input id="product_id" type="text" name="product_id" class="form-control" required/>
+                  </div>
+              </div>
+
+              <div class="form-col" style="padding: 10px 1px">
+                  <label for="item-name">Item Name</label>
+                  <div>
+                      <input id="name" type="text" name="item-name" class="form-control" required/>
+                  </div>
+              </div>
+
+              <div class="form-col" style="padding: 10px 1px">
+                  <label for="description">Description</label>
+                  <div>
+                      <input id="description" type="text" name="description" class="form-control" required/>
+                  </div>
+              </div>
+              <div class="form-col" style="padding: 10px 1px">
+                  <label for="department">Department</label>
+                  <div>
+                      <input id="department" type="text" name="department" class="form-control" required/>
+                  </div>
+              </div>
+
+              <div class="form-col" style="padding: 10px 1px">
+                  <label for="manufacturer">Manufacturer</label>
+                  <div>
+                      <input id="manufacturer" type="text" name="manufacturer" class="form-control" required/>
+                  </div>
+              </div>
+
+              <div class="form-col" style="padding: 10px 1px">
+                  <label for="price">Price</label>
+                  <div>
+                      <input id="price" type="text" name="price" class="form-control" required/>
+                  </div>
+              </div>
+
+              <div class="form-col" style="padding: 10px 1px">
+                  <label for="unit">Units</label>
+                  <div>
+                      <input id="unit" type="text" name="unit" class="form-control" required/>
+                  </div>
+              </div>
+
+              <div class="form-col" style="padding: 10px 1px">
+                  <label for="format">Format</label>
+                  <div>
+                      <input id="format" type="text" name="format" class="form-control" required/>
+                  </div>
+              </div>
+
+              <div class="form-col" style="padding: 10px 1px">
+                  <label for="inventory">Inventory</label>
+                  <div>
+                      <input id="inventory" type="text" name="inventory" class="form-control" required/>
+                  </div>
+              </div>
+
+              <div class="form-col" style="padding: 10px 1px">
+                  <label for="image_path">Image Link</label>
+                  <div>
+                      <input id="image_path" type="text" name="image_path" class="form-control" required/>
+                  </div>
+              </div>
+
+              <div style="padding: 2px">
+                  <button type="submit" class="btn btn-primary">
+                      Add Product
+                  </button>
+              </div>
+
+            </div>
+          </form>
+        </div>
+    </div>
+
         {{View::make('footer')}}
     </body>
 </html>

@@ -15,6 +15,7 @@ class AddBillingToOrdersTable extends Migration
     {
         Schema::table('orders', function (Blueprint $table) {
             //
+   
             $table->string('billing_address', 250)->default("");
             $table->double('total', 8, 2)->default(0);
 

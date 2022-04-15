@@ -21,67 +21,37 @@
         </style>
     </head>
     <body>
-        {{View::make('userHeader')}}
+        {{View::make('header')}}
+        <div class="background-users">
         <div class="identification">
-        <img src="../images/profilePicture.jpg" alt="Profile Picture" class="profile">
-        <p class="username">Username</p>
+        <img src="../public/images/profilePicture.jpg" alt="Profile Picture" class="profile">
+        <p class="username"> <b> {{ Auth::user()->first_name }} {{ Auth::user()->last_name }} </b></p>
         </div>
 
         <div class="options">
-        <button class="btn btn-outline-primary">Edit Profile</button>
-        <button class="btn btn-outline-primary">Orders</button>
-        <button class="btn btn-outline-primary">Wish List</button>
+        <a href="{{url('')}}/edit">
+            <button class="btn btn-outline-primary">Edit Profile</button>
+        </a>
+        <a href="{{url('')}}/orders">
+            <button class="btn btn-outline-primary">Orders</button>
+        </a>
         </div>
-
-        <div class="orders">
-        <h4>Recent Orders</h4>
-        <table style="width: 100%;">
-        <tr>
-        <th>Order #</th>
-        <th>Description</th>
-        <th>Date (YYYY/MM/DD)</th>
-        <th>Order Total</th>
-        </tr>
-
-        <tr>
-        <td>084040</td>
-        <td>Lorem ipsum dolor sit amet.</td>
-        <td>20XX/XX/XX</td>
-        <td>$XXX.XX</td>
-        </tr>
-
-        <tr>
-        <td>073738</td>
-        <td>Lorem ipsum dolor sit amet.</td>
-        <td>20XX/XX/XX</td>
-        <td>$XXX.XX</td>
-        </tr>
-
-        <tr>
-        <td>059474</td>
-        <td>Lorem ipsum dolor sit amet.</td>
-        <td>20XX/XX/XX</td>
-        <td>$XXX.XX</td>
-        </tr>
-
-        </table>
-        </div>
-
 
         <div class="info">
         <h4>Information</h4>
 
         <div>
         <h5>Email Address</h5>
-        <p class="info-txt">buyer@user.com</p>
+        <p class="info-txt">{{ Auth::user()->email }}</p>
         </div>
 
         <div>
-        <h5>Phone Number</h5>
-        <p class="info-txt">000 000 0000</p>
+        <h5>Address</h5>
+        <p class="info-txt">{{ Auth::user()->address}} {{ Auth::user()->province }} {{ Auth::user()->postal_code }}</p>
         </div>
-        
+
         </div>
-        {{View::make('userFooter')}}
+        </div>
+        {{View::make('footer')}}
     </body>
 </html>

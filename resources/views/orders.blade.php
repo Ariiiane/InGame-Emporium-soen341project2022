@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Admin Profile</title>
+        <title>Orders</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -22,41 +22,80 @@
     </head>
     <body>
         {{View::make('header')}}
+
         <div class="background-users">
-            <div class="identification">
-            <img src="../public/images/profilePicture.jpg" alt="Profile Picture" class="profile">
-            <p class="username">{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</p>
+        <div class="container">
+                <h1>Orders</h1>
             </div>
+            @if(sizeof($ordersData) == 0)
+                <p>Nothing to show here</p>
+            @else
+                @if(Auth::user()->role == 'buyer')
+                    <table>
+                        <tr>
+                            <th>Order Number</th>
+                            <th>Content</th>
+                            <th>Order Date</th>
+                            <th>Delivery Address</th>
+                            <th>Shipping Speed</th>
+                            <th>Order Total</th>
+                            <th>Payment Method</th>
+                        </tr>
+                            @foreach($ordersData as $item)
+                        <tr>
+                            <td>{{ $item->order_id }}</td>
+                            <td>
+                                <ul>
+                                @foreach($salesData as $data)
+                                    @if( $data->order_id == $item->order_id )
+                                        <li> {{ $data->quantity }} * {{ $data->name }} @ ${{ $data->price }} </li>
+                                    @endif
+                                @endforeach
+                                </ul>
+                            </td>
+                            <td>{{ substr($item->order_date,0,4) }}/{{ substr($item->order_date,4,2) }}/{{ substr($item->order_date,6,2) }}</td>
+                            <td>{{ $item->delivery_address }}</td>
+                            <td>{{ $item->shipping_speed }}</td>
+                            <td>${{ $item->total }}</td>
+                            <td> Card Ending in {{ substr($item->payment_card_number,12,4) }}</td>
+                        </tr>
+                            @endforeach
+                    </table>
+                @else
+                <table>
+                 <tr>
+                    <th>Order Number</th>
+                    <th>Client Name</th>
+                    <th>Content</th>
+                    <th>Order Date</th>
+                    <th>Delivery Address</th>
+                    <th>Shipping Speed</th>
+                    <th>Order Total</th>
+                </tr>
+                    @foreach($ordersData as $item)
+                <tr>
+                    <td>{{ $item->order_id }}</td>
+                    <td>{{ $item->first_name }} {{ $item->last_name }}</td>
+                    <td>
+                                <ul>
+                                @foreach($salesData as $data)
+                                    @if( $data->order_id == $item->order_id )
+                                        <li> {{ $data->quantity }} * {{ $data->name }} @ ${{ $data->price }} </li>
+                                    @endif
+                                @endforeach
+                                </ul>
+                            </td>
+                    <td>{{ substr($item->order_date,0,4) }}/{{ substr($item->order_date,4,2) }}/{{ substr($item->order_date,6,2) }}</td>
+                    <td>{{ $item->delivery_address }}</td>
+                    <td>{{ $item->shipping_speed }}</td>
+                    <td>${{ $item->total }}</td>
+                </tr>
+                    @endforeach
+                </table>
+                @endif
+            @endif
+    </div>
 
-            <div class="options">
-            <a href="{{url('')}}/edit">
-                <button class="btn btn-outline-primary">Edit Profile</button>
-            </a>
-            <a href="{{url('')}}/orders">
-                <button class="btn btn-outline-primary">Orders</button>
-            </a>
-            <a href="{{url('')}}/sellers_list">
-                <button class="btn btn-outline-primary">Sellers List</button>
-            </a>
-            <a href="{{url('')}}/buyers_list">
-                <button class="btn btn-outline-primary">Buyers List</button>
-            </a>
-            </div>
-
-            <div class="info">
-            <h4>Information</h4>
-
-            <div>
-            <h5>Email Address</h5>
-            <p class="info-txt">{{ Auth::user()->email }}</p>
-            </div>
-
-            <div>
-            <h5>Address</h5>
-            <p class="info-txt">{{ Auth::user()->address}} {{ Auth::user()->province }} {{ Auth::user()->postal_code }}</p>
-            </div>
-            </div>
-        </div>
         {{View::make('footer')}}
     </body>
 </html>

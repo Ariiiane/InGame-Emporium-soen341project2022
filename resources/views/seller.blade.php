@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>Seller Profile</title>
 
@@ -21,56 +22,29 @@
         </style>
     </head>
     <body>
-        {{View::make('userHeader')}}
+        {{View::make('header')}}
+        <div class="background-users">
         <div class="identification">
-        <img src="../images/profilePicture.jpg" alt="Profile Picture" class="profile">
-        <p class="username">Username</p>
-
-        <h4>Description</h4>
-        <ul>
-        </ul>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ac tortor dignissim convallis aenean et. Erat nam at lectus urna duis convallis.</p>
+        <img src="../public/images/profilePicture.jpg" alt="Profile Picture" class="profile">
+        <p class="username">{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</p>
         </div>
 
         <div class="options">
-        <button class="btn btn-outline-primary">Edit Profile</button>
-        <a href = "{{ url('seller/UploadAds')}} "><button class="btn btn-outline-primary">Advertisement</button></a>
-        <button class="btn btn-outline-primary">Orders</button>
-        <button class="btn btn-outline-primary">Products List</button>
-        </div>
+        <a href="{{url('')}}/edit">
+            <button class="btn btn-outline-primary">Edit Profile</button>
+        </a>
 
-        <div class="inventory">
-        <h4>Inventory</h4>
-        <table style="width: 100%;">
-        <tr>
-        <th>Items</th>
-        <th>Description</th>
-        <th>Quantity</th>
-        <th>Sell Price</th>
-        </tr>
+        <a href="{{url('')}}/sales">
+            <button class="btn btn-outline-primary">Sales</button>
+        </a>
         
-        <tr>
-        <td>Item 1</td>
-        <td>Lorem ipsum dolor sit amet.</td>
-        <td>XX</td>
-        <td>$XX.XX</td>
-        </tr>
-
-        <tr>
-        <td>Item 2</td>
-        <td>Lorem ipsum dolor sit amet.</td>
-        <td>XX</td>
-        <td>$XX.XX</td>
-        </tr>
-
-        <tr>
-        <td>Item 3</td>
-        <td>Lorem ipsum dolor sit amet.</td>
-        <td>XX</td>
-        <td>$XX.XX</td>
-        </tr>
-
-        </table>
+        <a href = "{{ url('seller/UploadAds')}} ">
+        <button class="btn btn-outline-primary">Advertisement</button>
+        </a>
+        
+        <a href="{{url('')}}/products_list">
+            <button class="btn btn-outline-primary">Products List</button>
+        </a>
         </div>
 
         <div class="info">
@@ -78,15 +52,15 @@
 
         <div>
         <h5>Email Address</h5>
-        <p class="info-txt">seller@user.com</p>
+        <p class="info-txt">{{ Auth::user()->email }}</p>
         </div>
 
         <div>
-        <h5>Phone Number</h5>
-        <p class="info-txt">000 000 0000</p>
+        <h5>Address</h5>
+        <p class="info-txt">{{ Auth::user()->address}} {{ Auth::user()->province }} {{ Auth::user()->postal_code }}</p>
         </div>
-        
         </div>
-        {{View::make('userFooter')}}
+        </div>
+        {{View::make('footer')}}
     </body>
 </html>

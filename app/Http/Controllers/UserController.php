@@ -7,7 +7,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Session;
 use App\Models\User;
-use Hash;
+use Illuminate\Support\Facades\Log;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Auth\LoginRequest;
+use App\Providers\RouteServiceProvider;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules;
+use Illuminate\Support\Facades\DB;
 
 
 class UserController extends Controller
@@ -70,7 +76,7 @@ class UserController extends Controller
     {
         $request->validate([
             'user_id' => 0,
-            'role' => "user",
+            'role' => 'required',
             'first_name' => 'required',
             'last_name' => 'required',
             'email' => 'required|email|unique:users',
@@ -127,12 +133,101 @@ class UserController extends Controller
      * Write code on Method
      *
      * @return response()
-     */
+   
     public function logout() {
         Session::flush();
         Auth::logout();
 
         return Redirect('login');
+    }
+      */
+    
+
+    public function display(Request $request)
+    {
+        ##$data = User::all();
+        $data = 'Hello';
+        ##return view('buyer', ['loggedInUser' => $loggedInUser] );
+        return view('buyer', compact('data') );
+    }
+
+    public function editUser(Request $request)
+    {
+        $user = User::where('user_id', $request->user()->user_id)->first();
+
+        if ($request->email) {
+            $user->email = $request->email;
+        }
+
+        if ($request->address) {
+            $user->address = $request->address;
+        }
+
+        if ($request->province) {
+            $user->province = $request->province;
+        }
+
+        if ($request->postal_code) {
+            $user->postal_code = $request->postal_code;
+        }
+
+        if ($request->new_password) {
+                $user->password = Hash::make($request->new_password);
+        }
+
+        $user->save();
+
+        return view('/edit_confirmation');
+
+        //return redirect('/edit')->with('success','Profile updated successfully.');
+        /*
+        if ($request->user()->role == 'buyer') {
+            return view('/buyer');
+        } else if ($request->user()->role == 'seller')  {
+                return view('/seller');
+            }
+        else {
+                return view('/admin');
+            }    
+        */        
+        
+    }
+
+    public function showOrders(Request $request)
+    {
+        if ($request->user()->role == 'buyer') {
+            $ordersData = DB::table('orders')
+            ->join('users', 'users.id', '=', 'orders.customer_id')
+            ->where('orders.customer_id', $request->user()->id)
+            ->select('orders.order_id', 'orders.order_date', 'orders.delivery_address', 'orders.shipping_speed', 'orders.total', 'orders.payment_card_number')
+            ->get();
+
+        } else {
+            $ordersData = DB::table('users')->join('orders', 'users.id', '=', 'orders.customer_id')
+      ->select('orders.order_id', 'orders.order_date', 'orders.delivery_address', 'orders.shipping_speed', 'orders.total', 'users.first_name', 'users.last_name')
+      ->get();
+        }
+
+        $salesData = DB::table('sales')
+            ->join('products', 'sales.product_id', '=', 'products.product_id')
+            ->select('sales.order_id', 'sales.quantity', 'products.name', 'products.price'  )
+            ->get();
+
+      return view('orders')
+      ->with(compact('ordersData'))
+      ->with(compact('salesData'));
+    } 
+
+    public function showSellers()
+    {
+        $sellersData = User::where('role', 'seller')->get();
+      return view('sellers_list',compact('sellersData'));
+    }
+
+    public function showBuyers()
+    {
+        $buyersData = User::where('role', 'buyer')->get();
+        return view('buyers_list',compact('buyersData'));
     }
 }
 
