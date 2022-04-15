@@ -13,17 +13,7 @@ class FileUploadController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function fileUpload()
-    {
-        return view('fileUpload');
-    }
-  
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function fileUploadPost(Request $request)
+    public function file_upload_post(Request $request)
     {
         $request->validate([
             'AdImage' => 'required|mimes:jpeg,png|max:10280',

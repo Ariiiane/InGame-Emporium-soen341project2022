@@ -62,7 +62,7 @@ class ProductController extends Controller
     {
         $products = Product::all();
 
-        return view('UploadAds',['products'=>$products]);
+        return view('upload_ads',['products'=>$products]);
     }
 
     /**

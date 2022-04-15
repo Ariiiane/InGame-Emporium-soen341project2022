@@ -21,7 +21,7 @@
         </style>
     </head>
     <body>
-        {{View::make('userHeader')}}
+        {{View::make('header')}}
         <div class="identification">
         <img src="../images/profilePicture.jpg" alt="Profile Picture" class="profile">
         <p class="username">Username</p>
@@ -87,6 +87,6 @@
         </div>
         
         </div>
-        {{View::make('userFooter')}}
+        {{View::make('footer')}}
     </body>
 </html>

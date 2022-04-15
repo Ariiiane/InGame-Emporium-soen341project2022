@@ -25,7 +25,7 @@ class CheckoutController extends Controller
         $userItems = [];
         $userInfo = [];
         $subtotal = 0;
-        $tax_rate = 0.15;
+        $taxRate = 0.15;
         $msg = ["",""];
 
         if ($request->user()) {
@@ -41,7 +41,7 @@ class CheckoutController extends Controller
             return view('checkout',['message'=>$msg, 'totals'=>$totals, 'items'=>$userItems, 'info'=>$userInfo]);
         }
 
-        $tax = $subtotal*$tax_rate;
+        $tax = $subtotal*$taxRate;
         $total = $subtotal + $tax;
         $totals = [$subtotal, $tax, $total];
         return view('checkout',['message'=>$msg, 'totals'=>$totals, 'items'=>$userItems, 'info'=>$userInfo]);

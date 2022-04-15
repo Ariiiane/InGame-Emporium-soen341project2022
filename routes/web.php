@@ -46,8 +46,8 @@ Route::get('/edit', function () {
     return view('edit');
 });
 
-Route::post('/seller/uploaded_file', [FileUploadController::class, 'fileUploadPost']);
-Route::get('/seller/UploadAds', [ProductController::class, 'get_products_for_dropwdown']);
+Route::post('/seller/uploaded_file', [FileUploadController::class, 'file_upload_post']);
+Route::get('/seller/upload_ads', [ProductController::class, 'get_products_for_dropwdown']);
 Route::get('/browsing/{department}', [ProductController::class, 'get_products_by_department']);
 Route::get('/browsing/item/{product_id}', [ProductController::class, 'get_products_by_id']);
 Route::get('/cart', [CartController::class, 'show']);
@@ -60,18 +60,6 @@ Route::resource('products', ProductController::class);
 
 Route::get('/checkout', [CheckoutController::class, 'index']);
 Route::post('/order_confirmation', [CheckoutController::class, 'success']);
-
-
-
-// Chloe for Auth
-//Route::get('user-list', [AuthController::class, 'index'])->name('user.list');
-//Route::get('login', [AuthController::class, 'login'])->name('login');
-//Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post');
-//Route::get('registration', [AuthController::class, 'registration'])->name('register');
-//Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('register.post');
-//Route::get('dashboard', [AuthController::class, 'dashboard']);
-//Route::get('logout', [AuthController::class, 'logout'])->name('logout');
-
 
 //Hilary for managing profile
 Route::get('/buyer', [AuthenticatedSessionController::class,'display']);
