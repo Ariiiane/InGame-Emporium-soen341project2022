@@ -2,7 +2,7 @@
 
 [![Actions Status](https://github.com/Ariiiane/InGame-Emporium-soen341project2022/workflows/Laravel/badge.svg)](https://github.com/Ariiiane/InGame-Emporium-soen341project2022/actions)
 
-[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=Ariiiane_InGame-Emporium-soen341project2022)](https://sonarcloud.io/summary/new_code?id=Ariiiane_InGame-Emporium-soen341project2022)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Ariiiane_InGame-Emporium-soen341project2022&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Ariiiane_InGame-Emporium-soen341project2022)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=Ariiiane_InGame-Emporium-soen341project2022&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=Ariiiane_InGame-Emporium-soen341project2022)
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=Ariiiane_InGame-Emporium-soen341project2022&metric=bugs)](https://sonarcloud.io/summary/new_code?id=Ariiiane_InGame-Emporium-soen341project2022)
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=Ariiiane_InGame-Emporium-soen341project2022&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=Ariiiane_InGame-Emporium-soen341project2022)
